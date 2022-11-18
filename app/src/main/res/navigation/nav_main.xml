@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/mainScreenFragment">
+
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="com.fivemarket.MainScreenFragment"
+        android:label="메인화면"
+        tools:layout="@layout/fragment_main_screen">
+        <action
+            android:id="@+id/action_mainScreenFragment_to_pageMenuFragment"
+            app:destination="@id/pageMenuFragment" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_itemlist_totalFragment"
+            app:destination="@id/itemlist_totalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pageMenuFragment"
+        android:name="com.fivemarket.PageMenuFragment"
+        android:label="메뉴클릭시화면"
+        tools:layout="@layout/fragment_page_menu">
+        <action
+            android:id="@+id/action_pageMenuFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
+        <action
+            android:id="@+id/action_pageMenuFragment_to_myprofileFragment"
+            app:destination="@id/myprofileFragment" />
+        <action
+            android:id="@+id/action_pageMenuFragment_to_itemlist_totalFragment"
+            app:destination="@id/itemlist_totalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myprofileFragment"
+        android:name="com.fivemarket.MyprofileFragment"
+        android:label="마이프로필"
+        tools:layout="@layout/fragment_myprofile">
+        <action
+            android:id="@+id/action_myprofileFragment_to_pageMenuFragment"
+            app:destination="@id/pageMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemlist_totalFragment"
+        android:name="com.fivemarket.Itemlist_totalFragment"
+        android:label="전체상품보기"
+        tools:layout="@layout/fragment_itemlist_total" />
+</navigation>
