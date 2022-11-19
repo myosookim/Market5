@@ -28,14 +28,15 @@ class Itemlist_totalFragment : Fragment() {
         Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3)
     )
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // Inflate the layout for this fragment
-        binding = FragmentItemlistTotalBinding.inflate(LayoutInflater.from(context))
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentItemlistTotalBinding.inflate(layoutInflater)
         binding?.recItems?.layoutManager = LinearLayoutManager(context)
         binding?.recItems?.adapter = ItemsAdapter(items)
-
+        return binding?.root
     }
 
 }
