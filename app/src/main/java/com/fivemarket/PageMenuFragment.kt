@@ -45,6 +45,15 @@ class PageMenuFragment : Fragment() {
         binding?.gotoSilkBtn?.setOnClickListener {
             findNavController().navigate(R.id.action_pageMenuFragment_to_itemlist_silkFragment)
         }
+        binding?.gotoCottonBtn?.setOnClickListener {
+            findNavController().navigate(R.id.action_pageMenuFragment_to_itemlist_cottonFragment)
+        }
+        binding?.gotoLeatherBtn?.setOnClickListener {
+            findNavController().navigate(R.id.action_pageMenuFragment_to_itemlist_leatherFragment)
+        }
+        binding?.gotoLaceBtn?.setOnClickListener {
+            findNavController().navigate(R.id.action_pageMenuFragment_to_itemlist_laceFragment)
+        }
     }
 
 }

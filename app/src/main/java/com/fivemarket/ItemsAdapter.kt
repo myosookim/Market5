@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fivemarket.databinding.ListItemsBinding
 
-class ItemsAdapter(val items:Array<Items>):RecyclerView.Adapter<ItemsAdapter.Holder>() {
+class ItemsAdapter(val items:ArrayList<Items>):RecyclerView.Adapter<ItemsAdapter.Holder>() {
 
 
         //상속받으면 자동 생성

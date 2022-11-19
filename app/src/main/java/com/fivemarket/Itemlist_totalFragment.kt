@@ -27,7 +27,7 @@ class Itemlist_totalFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        var items: Array<Items> = requireActivity().intent!!.extras!!.get("total_items") as Array<Items>
+        var items: ArrayList<Items> = requireActivity().intent!!.extras!!.get("total_items") as ArrayList<Items>
         binding = FragmentItemlistTotalBinding.inflate(layoutInflater)
         binding?.recItems?.layoutManager = LinearLayoutManager(context)
         binding?.recItems?.adapter = ItemsAdapter(items)

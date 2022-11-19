@@ -18,7 +18,7 @@ class Itemlist_silkFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var items: Array<Items> = requireActivity().intent!!.extras!!.get("silk_items") as Array<Items>
+        var items: ArrayList<Items> = requireActivity().intent!!.extras!!.get("silk_items") as ArrayList<Items>
         binding = FragmentItemlistSilkBinding.inflate(layoutInflater)
         binding?.recItemsSilk?.layoutManager = LinearLayoutManager(context)
         binding?.recItemsSilk?.adapter = ItemsAdapter(items)

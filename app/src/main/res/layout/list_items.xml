@@ -9,7 +9,7 @@
         android:id="@+id/img_item"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:background="@android:color/transparent"
@@ -18,13 +18,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/main_itemimg3" />
 
-    <TextView
+    <Button
         android:id="@+id/txt_name"
-        android:layout_width="144dp"
+        style="?android:borderlessButtonStyle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="16dp"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
         android:text="임시상품"
+        android:textAlignment="viewStart"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/img_item"
@@ -34,20 +38,22 @@
         android:id="@+id/txt_coname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="-8dp"
         android:text="달팽이공방"
         android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="@+id/txt_name"
+        app:layout_constraintStart_toEndOf="@+id/img_item"
         app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
     <TextView
         android:id="@+id/txt_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="22dp"
         android:text="5,000"
         android:textColor="#F44336"
         app:layout_constraintStart_toStartOf="@+id/txt_coname"
         app:layout_constraintTop_toBottomOf="@+id/txt_coname" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

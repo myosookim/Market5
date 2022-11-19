@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
-    val items = arrayOf(
+    val items = arrayListOf(
         Items("상품1","업체1",5000,Etype.SILK,R.drawable.main_itemimg1),
         Items("상품2","업체2",6000,Etype.COTTON,R.drawable.main_itemimg2),
         Items("상품3","업체3",7000,Etype.LEATHER,R.drawable.main_itemimg3),
@@ -27,18 +27,41 @@ class MainActivity : AppCompatActivity() {
         Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3)
     )
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        intent.putExtra("total_items", items)
-        intent.putExtra("silk_items", items)
-        intent.putExtra("cotton_items", items)
-        intent.putExtra("leather_items", items)
-        intent.putExtra("lace_items", items)
+        var items_silk : ArrayList<Items> = arrayListOf()
+        var items_cotton : ArrayList<Items> = arrayListOf()
+        var items_leather : ArrayList<Items> = arrayListOf()
+        var items_lace : ArrayList<Items> = arrayListOf()
 
-        // 툴바 (액션바 비활성화했기 때문에, 커스텀한 툴바를 액션바 대신 사용)
+        for(i in items){
+            if(i.type == Etype.SILK) {
+                items_silk.add(i)
+            }
+            if(i.type == Etype.COTTON){
+                items_cotton.add(i)
+            }
+            if(i.type == Etype.LEATHER){
+                items_leather.add(i)
+            }
+            if(i.type == Etype.LACE){
+                items_lace.add(i)
+            }
+        }
+
+        intent.putExtra("total_items", items)
+        intent.putExtra("silk_items", items_silk)
+        intent.putExtra("cotton_items", items_cotton)
+        intent.putExtra("leather_items", items_leather)
+        intent.putExtra("lace_items", items_lace)
+
+        // 툴바 (액션바 비활성화했기 때문에, 커스텀한 툴바를 액션바 대신 사용).
+        // 주의!! : 툴바 코드는 onCreate의 제일 마지막 부분에 있어야 합니다.
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 

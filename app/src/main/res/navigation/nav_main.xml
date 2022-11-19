@@ -34,6 +34,15 @@
         <action
             android:id="@+id/action_pageMenuFragment_to_itemlist_silkFragment"
             app:destination="@id/itemlist_silkFragment" />
+        <action
+            android:id="@+id/action_pageMenuFragment_to_itemlist_cottonFragment"
+            app:destination="@id/itemlist_cottonFragment" />
+        <action
+            android:id="@+id/action_pageMenuFragment_to_itemlist_leatherFragment"
+            app:destination="@id/itemlist_leatherFragment" />
+        <action
+            android:id="@+id/action_pageMenuFragment_to_itemlist_laceFragment"
+            app:destination="@id/itemlist_laceFragment" />
     </fragment>
     <fragment
         android:id="@+id/myprofileFragment"
@@ -48,10 +57,45 @@
         android:id="@+id/itemlist_totalFragment"
         android:name="com.fivemarket.Itemlist_totalFragment"
         android:label="전체상품보기"
-        tools:layout="@layout/fragment_itemlist_total" />
+        tools:layout="@layout/fragment_itemlist_total" >
+        <action
+            android:id="@+id/action_itemlist_totalFragment_to_pageMenuFragment"
+            app:destination="@id/pageMenuFragment" />
+    </fragment>
     <fragment
         android:id="@+id/itemlist_silkFragment"
         android:name="com.fivemarket.Itemlist_silkFragment"
         android:label="fragment_itemlist_silk"
-        tools:layout="@layout/fragment_itemlist_silk" />
+        tools:layout="@layout/fragment_itemlist_silk" >
+        <action
+            android:id="@+id/action_itemlist_silkFragment_to_pageMenuFragment"
+            app:destination="@id/pageMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemlist_cottonFragment"
+        android:name="com.fivemarket.Itemlist_cottonFragment"
+        android:label="fragment_itemlist_cotton"
+        tools:layout="@layout/fragment_itemlist_cotton" >
+        <action
+            android:id="@+id/action_itemlist_cottonFragment_to_pageMenuFragment"
+            app:destination="@id/pageMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemlist_leatherFragment"
+        android:name="com.fivemarket.Itemlist_leatherFragment"
+        android:label="fragment_itemlist_leather"
+        tools:layout="@layout/fragment_itemlist_leather" >
+        <action
+            android:id="@+id/action_itemlist_leatherFragment_to_pageMenuFragment"
+            app:destination="@id/pageMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemlist_laceFragment"
+        android:name="com.fivemarket.Itemlist_laceFragment"
+        android:label="fragment_itemlist_lace"
+        tools:layout="@layout/fragment_itemlist_lace" >
+        <action
+            android:id="@+id/action_itemlist_laceFragment_to_pageMenuFragment"
+            app:destination="@id/pageMenuFragment" />
+    </fragment>
 </navigation>
