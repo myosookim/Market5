@@ -39,6 +39,12 @@ class PageMenuFragment : Fragment() {
         binding?.gotoMyprofileBtn?.setOnClickListener {
             findNavController().navigate(R.id.action_pageMenuFragment_to_myprofileFragment)
         }
+        binding?.gotoTotalBtn?.setOnClickListener {
+            findNavController().navigate(R.id.action_pageMenuFragment_to_itemlist_totalFragment)
+        }
+        binding?.gotoSilkBtn?.setOnClickListener {
+            findNavController().navigate(R.id.action_pageMenuFragment_to_itemlist_silkFragment)
+        }
     }
 
 }

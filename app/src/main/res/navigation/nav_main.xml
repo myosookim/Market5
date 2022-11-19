@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_pageMenuFragment_to_itemlist_totalFragment"
             app:destination="@id/itemlist_totalFragment" />
+        <action
+            android:id="@+id/action_pageMenuFragment_to_itemlist_silkFragment"
+            app:destination="@id/itemlist_silkFragment" />
     </fragment>
     <fragment
         android:id="@+id/myprofileFragment"
@@ -46,4 +49,9 @@
         android:name="com.fivemarket.Itemlist_totalFragment"
         android:label="전체상품보기"
         tools:layout="@layout/fragment_itemlist_total" />
+    <fragment
+        android:id="@+id/itemlist_silkFragment"
+        android:name="com.fivemarket.Itemlist_silkFragment"
+        android:label="fragment_itemlist_silk"
+        tools:layout="@layout/fragment_itemlist_silk" />
 </navigation>

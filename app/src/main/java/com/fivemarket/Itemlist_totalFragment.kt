@@ -21,18 +21,13 @@ class Itemlist_totalFragment : Fragment() {
 
     var binding : FragmentItemlistTotalBinding? = null
 
-    val items = arrayOf(
-
-        Items("상품1","업체1",5000,Etype.SILK,R.drawable.main_itemimg1),
-        Items("상품2","업체2",6000,Etype.LEATHER,R.drawable.main_itemimg2),
-        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3)
-    )
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        var items: Array<Items> = requireActivity().intent!!.extras!!.get("total_items") as Array<Items>
         binding = FragmentItemlistTotalBinding.inflate(layoutInflater)
         binding?.recItems?.layoutManager = LinearLayoutManager(context)
         binding?.recItems?.adapter = ItemsAdapter(items)

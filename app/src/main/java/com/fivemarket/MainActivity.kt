@@ -15,10 +15,28 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
+    val items = arrayOf(
+        Items("상품1","업체1",5000,Etype.SILK,R.drawable.main_itemimg1),
+        Items("상품2","업체2",6000,Etype.COTTON,R.drawable.main_itemimg2),
+        Items("상품3","업체3",7000,Etype.LEATHER,R.drawable.main_itemimg3),
+        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3),
+        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3),
+        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3),
+        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3),
+        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3),
+        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3)
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        intent.putExtra("total_items", items)
+        intent.putExtra("silk_items", items)
+        intent.putExtra("cotton_items", items)
+        intent.putExtra("leather_items", items)
+        intent.putExtra("lace_items", items)
 
         // 툴바 (액션바 비활성화했기 때문에, 커스텀한 툴바를 액션바 대신 사용)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
