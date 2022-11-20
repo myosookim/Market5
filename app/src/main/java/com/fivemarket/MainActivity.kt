@@ -72,6 +72,7 @@ class MainActivity : AppCompatActivity() {
                 true
             }
         }
+
         // Use the navigate() method that takes a navOptions DSL Builder
         // 툴바 (액션바 비활성화했기 때문에, 커스텀한 툴바를 액션바 대신 사용).
         // 주의!! : 툴바 코드는 onCreate의 제일 마지막 부분에 있어야 합니다.
