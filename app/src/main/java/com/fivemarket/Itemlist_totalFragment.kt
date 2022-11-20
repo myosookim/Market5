@@ -32,6 +32,7 @@ class Itemlist_totalFragment : Fragment() {
         binding?.recItems?.layoutManager = LinearLayoutManager(context)
         binding?.recItems?.adapter = ItemsAdapter(items)
         return binding?.root
+
     }
 
 }

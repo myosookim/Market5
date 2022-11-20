@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainScreenFragment_to_itemlist_totalFragment"
             app:destination="@id/itemlist_totalFragment" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_heartPageFragment"
+            app:destination="@id/heartPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/pageMenuFragment"
@@ -52,6 +55,9 @@
         <action
             android:id="@+id/action_myprofileFragment_to_pageMenuFragment"
             app:destination="@id/pageMenuFragment" />
+        <action
+            android:id="@+id/action_myprofileFragment_to_heartPageFragment"
+            app:destination="@id/heartPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemlist_totalFragment"
@@ -98,4 +104,9 @@
             android:id="@+id/action_itemlist_laceFragment_to_pageMenuFragment"
             app:destination="@id/pageMenuFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/heartPageFragment"
+        android:name="com.fivemarket.HeartPageFragment"
+        android:label="찜목록"
+        tools:layout="@layout/fragment_heart_page" />
 </navigation>

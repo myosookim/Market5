@@ -1,14 +1,15 @@
 package com.fivemarket
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.fivemarket.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -53,13 +54,25 @@ class MainActivity : AppCompatActivity() {
                 items_lace.add(i)
             }
         }
-
         intent.putExtra("total_items", items)
         intent.putExtra("silk_items", items_silk)
         intent.putExtra("cotton_items", items_cotton)
         intent.putExtra("leather_items", items_leather)
         intent.putExtra("lace_items", items_lace)
 
+        // 하단바
+        val navcontroller = binding.fragmentContainerView.getFragment<NavHostFragment>().navController
+        binding.bottomNavigationView.setupWithNavController(navcontroller)
+        // 백스택을 자동으로 저장하고 복구하는 기능 삭제
+        binding.bottomNavigationView.apply {
+            setupWithNavController(navcontroller)
+            setOnItemSelectedListener { item ->
+                NavigationUI.onNavDestinationSelected(item, navcontroller)
+                navcontroller.popBackStack(item.itemId, inclusive = false)
+                true
+            }
+        }
+        // Use the navigate() method that takes a navOptions DSL Builder
         // 툴바 (액션바 비활성화했기 때문에, 커스텀한 툴바를 액션바 대신 사용).
         // 주의!! : 툴바 코드는 onCreate의 제일 마지막 부분에 있어야 합니다.
         val toolbar: Toolbar = findViewById(R.id.toolbar)
@@ -69,8 +82,9 @@ class MainActivity : AppCompatActivity() {
         val actionBar: ActionBar? = supportActionBar
         // 앱바에 뒤로가기 버튼 생성
         actionBar?.setDisplayHomeAsUpEnabled(true)
-
     }
+
+
 
     // 액션바에 메뉴를 추가
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
