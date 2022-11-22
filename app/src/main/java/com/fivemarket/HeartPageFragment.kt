@@ -14,26 +14,8 @@ import com.fivemarket.databinding.FragmentItemlistCottonBinding
 
 class HeartPageFragment : Fragment() {
 
-    var binding : FragmentHeartPageBinding? = null
-    var heart_list : ArrayList<Items> = arrayListOf()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        for(i in MainActivity().items){
-            if(i.isLiked){
-                heart_list += i
-            }
-        }
-        binding = FragmentHeartPageBinding.inflate(layoutInflater)
-        binding?.recHeart?.layoutManager = LinearLayoutManager(context)
-        binding?.recHeart?.adapter = ItemsAdapter(heart_list)
-        return binding?.root
     }
 
 }
