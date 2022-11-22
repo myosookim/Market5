@@ -1,5 +1,6 @@
 package com.fivemarket
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -25,15 +26,21 @@ class ItemsAdapter(val items:ArrayList<Items>):RecyclerView.Adapter<ItemsAdapter
                 binding.txtName.text = items.name
                 binding.txtConame.text = items.co_name
                 binding.txtPrice.text = items.price.toString()
+                if(items.isLiked)
+                    binding.btnHeart.setImageResource(R.drawable.heart_24dp_red)
+                else
+                    binding.btnHeart.setImageResource(R.drawable.heart_24dp_gray)
 
-                var click_cnt = 1
                 binding.btnHeart.setOnClickListener {
-                    click_cnt++;
-                    if(click_cnt % 2 == 0){
-                        binding.btnHeart.setImageResource(R.drawable.heart_24dp_red)
+                    if(items.isLiked == true){
+                        binding.btnHeart.setImageResource(R.drawable.heart_24dp_gray)
+                        items.isLiked = false
+                        Log.d("${items.name}","찜 : ${items.isLiked}")
                     }
                     else{
-                        binding.btnHeart.setImageResource(R.drawable.heart_24dp_gray)
+                        binding.btnHeart.setImageResource(R.drawable.heart_24dp_red)
+                        items.isLiked = true
+                        Log.d("${items.name}","찜 : ${items.isLiked}")
                     }
                 }
             }

@@ -16,18 +16,20 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
-    val items = arrayListOf(
-        Items("상품1","업체1",5000,Etype.SILK,R.drawable.main_itemimg1),
-        Items("상품2","업체2",6000,Etype.COTTON,R.drawable.main_itemimg2),
-        Items("상품3","업체3",7000,Etype.LEATHER,R.drawable.main_itemimg3),
-        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3),
-        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3),
-        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3),
-        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3),
-        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3),
-        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3)
-    )
-
+    var items_silk = arrayListOf(
+        Items("상품1","업체1",5000,Etype.SILK,R.drawable.main_itemimg1,false))
+    var items_cotton = arrayListOf(
+        Items("상품2","업체2",6000,Etype.COTTON,R.drawable.main_itemimg2,false))
+    var items_leather = arrayListOf(
+        Items("상품3","업체3",7000,Etype.LEATHER,R.drawable.main_itemimg3,false),
+        Items("상품3-1","업체3-1",7000,Etype.LEATHER,R.drawable.main_itemimg3,false))
+    var items_lace = arrayListOf(
+        Items("상품3","업체3",7000,Etype.LACE,R.drawable.main_itemimg3,false),
+        Items("상품4","업체4",8000,Etype.LACE,R.drawable.main_itemimg3,false),
+        Items("상품5","업체5",9000,Etype.LACE,R.drawable.main_itemimg3,false),
+        Items("상품6","업체6",10000,Etype.LACE,R.drawable.main_itemimg3,false),
+        Items("상품7","업체7",11000,Etype.LACE,R.drawable.main_itemimg3,false),
+        Items("상품8","업체8",12000,Etype.LACE,R.drawable.main_itemimg3,false))
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,25 +37,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var items_silk : ArrayList<Items> = arrayListOf()
-        var items_cotton : ArrayList<Items> = arrayListOf()
-        var items_leather : ArrayList<Items> = arrayListOf()
-        var items_lace : ArrayList<Items> = arrayListOf()
+        var items : ArrayList<Items> = arrayListOf()
+        items += items_silk + items_cotton + items_leather + items_lace
 
-        for(i in items){
-            if(i.type == Etype.SILK) {
-                items_silk.add(i)
-            }
-            if(i.type == Etype.COTTON){
-                items_cotton.add(i)
-            }
-            if(i.type == Etype.LEATHER){
-                items_leather.add(i)
-            }
-            if(i.type == Etype.LACE){
-                items_lace.add(i)
-            }
-        }
         intent.putExtra("total_items", items)
         intent.putExtra("silk_items", items_silk)
         intent.putExtra("cotton_items", items_cotton)

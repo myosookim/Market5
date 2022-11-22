@@ -15,4 +15,5 @@ class Items(
     val price:Int,      // 가격
     val type:Etype,       // 종류 ( 실크, 면, 가죽 , 레이스 )
     val img:Int,         // 상품 이미지
+    var isLiked:Boolean
 )
