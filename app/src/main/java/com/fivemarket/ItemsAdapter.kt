@@ -31,6 +31,7 @@ class ItemsAdapter(val items:ArrayList<Items>):RecyclerView.Adapter<ItemsAdapter
                 else
                     binding.btnHeart.setImageResource(R.drawable.heart_24dp_gray)
 
+                // 각 목록의 하트 버튼 클릭했을 때 이미지 바꾸고 isLiked값 바꾸기
                 binding.btnHeart.setOnClickListener {
                     if(items.isLiked == true){
                         binding.btnHeart.setImageResource(R.drawable.heart_24dp_gray)
