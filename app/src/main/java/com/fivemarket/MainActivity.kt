@@ -31,13 +31,13 @@ class MainActivity : AppCompatActivity() {
         Items("상품7","업체7",11000,Etype.LACE,R.drawable.main_itemimg3,false),
         Items("상품8","업체8",12000,Etype.LACE,R.drawable.main_itemimg3,false))
 
+    var items : ArrayList<Items> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var items : ArrayList<Items> = arrayListOf()
         items += items_silk + items_cotton + items_leather + items_lace
 
         intent.putExtra("total_items", items)
