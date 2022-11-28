@@ -1,6 +1,7 @@
 package com.fivemarket
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBar
@@ -11,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.fivemarket.databinding.ActivityMainBinding
+import com.kakao.sdk.common.util.Utility
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var keyHash = Utility.getKeyHash(this)
+        Log.e("키해시","$keyHash")
         // 하단바
         val navcontroller = binding.fragmentContainerView.getFragment<NavHostFragment>().navController
         binding.bottomNavigationView.setupWithNavController(navcontroller)
