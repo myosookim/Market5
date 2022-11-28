@@ -50,7 +50,8 @@ dependencies {
     implementation "com.kakao.sdk:v2-story:2.11.2" // 카카오스토리
     implementation "com.kakao.sdk:v2-share:2.11.2" // 메시지(카카오톡 공유)
     implementation "com.kakao.sdk:v2-navi:2.11.2" // 카카오내비
-    implementation "com.kakao.sdk:v2-friend:2.11.2" // 카카오톡 소셜 피커, 리소스 번들 파일 포함
+    implementation "com.kakao.sdk:v2-friend:2.11.2"
+    implementation 'androidx.core:core-ktx:+'// 카카오톡 소셜 피커, 리소스 번들 파일 포함
     implementation 'com.google.firebase:firebase-messaging-ktx:23.1.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
