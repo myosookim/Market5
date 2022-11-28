@@ -5,20 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fivemarket.databinding.FragmentItemlistCottonBinding
-
 
 class Itemlist_cottonFragment : Fragment() {
 
     var binding: FragmentItemlistCottonBinding? = null
 
+    private val itemViewModel by activityViewModels<ItemViewModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        var items: ArrayList<Items> = requireActivity().intent!!.extras!!.get("cotton_items") as ArrayList<Items>
+        val items: ArrayList<Items> = itemViewModel.items_cotton
         binding = FragmentItemlistCottonBinding.inflate(layoutInflater)
         binding?.recItemsCotton?.layoutManager = LinearLayoutManager(context)
         binding?.recItemsCotton?.adapter = ItemsAdapter(items)

@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.fivemarket.databinding.FragmentPageMenuBinding
 
@@ -53,6 +52,9 @@ class PageMenuFragment : Fragment() {
         }
         binding?.gotoLaceBtn?.setOnClickListener {
             findNavController().navigate(R.id.action_pageMenuFragment_to_itemlist_laceFragment)
+        }
+        binding?.gotoPurchaselistBtn?.setOnClickListener {
+            findNavController().navigate(R.id.action_pageMenuFragment_to_heartPageFragment)
         }
     }
 

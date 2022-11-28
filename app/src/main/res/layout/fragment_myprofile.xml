@@ -219,7 +219,7 @@
                             android:id="@+id/TextFollow"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="업체 팔로우"
+                            android:text="찜 목록"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="13sp"

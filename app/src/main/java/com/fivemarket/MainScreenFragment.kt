@@ -3,13 +3,9 @@ package com.fivemarket
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.fivemarket.databinding.ActivityMainBinding
 import com.fivemarket.databinding.FragmentMainScreenBinding
 
 /**

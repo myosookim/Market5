@@ -1,7 +1,5 @@
 package com.fivemarket
 
-import android.graphics.drawable.Drawable
-
 enum class Etype{   // 실크, 면, 가죽 , 레이스
     SILK,
     COTTON,

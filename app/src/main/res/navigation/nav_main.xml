@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/mainScreenFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/mainScreenFragment"
@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_pageMenuFragment_to_itemlist_laceFragment"
             app:destination="@id/itemlist_laceFragment" />
+        <action
+            android:id="@+id/action_pageMenuFragment_to_heartPageFragment"
+            app:destination="@id/heartPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/myprofileFragment"
@@ -109,4 +112,13 @@
         android:name="com.fivemarket.HeartPageFragment"
         android:label="찜목록"
         tools:layout="@layout/fragment_heart_page" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.fivemarket.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
+    </fragment>
 </navigation>
