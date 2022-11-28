@@ -57,19 +57,30 @@ class LoginFragment : Fragment() {
         binding.kakaoLogin.setOnClickListener {
             handleKakaoLogin()
         }
+
+        binding.btnLogout.setOnClickListener {
+            UserApiClient.instance.logout { error ->
+                if (error != null) {
+                    Toast.makeText(context, "카카오 로그아웃 실패", Toast.LENGTH_SHORT).show()
+                    Log.d("카카오","카카오 로그아웃 실패")
+                }else {
+                    Toast.makeText(context, "카카오 로그아웃 성공", Toast.LENGTH_SHORT).show()
+                    Log.d("카카오","카카오 로그아웃 성공!")
+                }
+            }
+        }
     }
 
     private fun handleKakaoLogin() {
-        // 로그인 조합 예제
-
-        // 카카오계정으로 로그인 공통 callback 구성
-        // 카카오톡으로 로그인 할 수 없어 카카오계정으로 로그인할 경우 사용됨
+        // 카카오 계정으로 로그인 공통 콜백 구성함!
+        // 카카오톡으로 로그인 불가해 카카오계정으로 로그인할 경우 사용된다.
 
         // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
         if (UserApiClient.instance.isKakaoTalkLoginAvailable(requireContext())) {
             UserApiClient.instance.loginWithKakaoTalk(requireContext()) { token, error ->
                 if (error != null) {
-//                    Log.e(TESTTEST, "카카오톡으로 로그인 실패", error)
+                    Toast.makeText(context, "카카오톡으로 로그인 실패", Toast.LENGTH_SHORT).show()
+                    Log.e("카카오톡으로 로그인 실패", "$error")
 
                     // 사용자가 카카오톡 설치 후 디바이스 권한 요청 화면에서 로그인을 취소한 경우,
                     // 의도적인 로그인 취소로 보고 카카오계정으로 로그인 시도 없이 로그인 취소로 처리 (예: 뒤로 가기)
@@ -83,7 +94,8 @@ class LoginFragment : Fragment() {
                         callback = kakaoCallback
                     )
                 } else if (token != null) {
-//                    Log.i(TESTTEST, "카카오톡으로 로그인 성공 ${token.accessToken}")
+                    Toast.makeText(context, "카카오톡으로 로그인 성공", Toast.LENGTH_SHORT).show()
+                    Log.e("카카오톡으로 로그인 성공"," ${token.accessToken}")
                 }
             }
         } else {
