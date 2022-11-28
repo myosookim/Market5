@@ -19,27 +19,15 @@ class HeartPageFragment : Fragment() {
     private val itemViewModel by activityViewModels<ItemViewModel>()
 
     var binding : FragmentHeartPageBinding? = null
-    var heart_list : ArrayList<Items> = arrayListOf()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        for(i in itemViewModel.items){
-            if(i.isLiked){
-                heart_list += i
-                Log.e("${i.name}","찜 목록에 추가됩니다.")
-            }
-            Log.e("for문","돌았음.")
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHeartPageBinding.inflate(layoutInflater)
+        val items: ArrayList<Items> = itemViewModel.heartlist
         binding?.recHeart?.layoutManager = LinearLayoutManager(context)
-        binding?.recHeart?.adapter = ItemsAdapter(heart_list)
+        binding?.recHeart?.adapter = ItemsAdapter(items)
         return binding?.root
     }
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "161531906318",
+    "project_id": "fivemarket-6c403",
+    "storage_bucket": "fivemarket-6c403.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161531906318:android:afe7fc595d91447fba2f5f",
+        "android_client_info": {
+          "package_name": "com.fivemarket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "161531906318-vn78j7dfuv81v208rul74foalt5s8qho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUyb76VZ_aV1JRS_S-p2VWcbdEh2PqQsE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "161531906318-vn78j7dfuv81v208rul74foalt5s8qho.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

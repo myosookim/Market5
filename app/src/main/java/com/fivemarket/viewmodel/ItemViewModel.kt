@@ -39,4 +39,12 @@ class ItemViewModel : ViewModel() {
         addAll(items_lace)
     }
 
+    var heartlist = arrayListOf<Items>().apply {
+        for(i in items){
+            if(i.isLiked){
+                add(i)
+            }
+        }
+    }
+
 }
