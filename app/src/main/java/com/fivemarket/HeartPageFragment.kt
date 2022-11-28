@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fivemarket.databinding.FragmentHeartPageBinding
+import com.fivemarket.viewmodel.ItemViewModel
 
 // 찜 목록 프래그먼트!!
 // 레이아웃 파일의 fragment_heart_page.xml과 함께 찜 기능 구현할 것

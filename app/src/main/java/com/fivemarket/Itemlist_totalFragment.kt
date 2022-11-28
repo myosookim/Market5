@@ -6,12 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
-import androidx.recyclerview.widget.RecyclerView.inflate
 import com.fivemarket.databinding.FragmentItemlistTotalBinding
+import com.fivemarket.viewmodel.ItemViewModel
 
 /**
  * A simple [Fragment] subclass.

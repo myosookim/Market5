@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fivemarket.databinding.FragmentItemlistLaceBinding
+import com.fivemarket.viewmodel.ItemViewModel
 
 class Itemlist_laceFragment : Fragment() {
     var binding: FragmentItemlistLaceBinding? = null
