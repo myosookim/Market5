@@ -69,10 +69,10 @@ class ItemViewModel : ViewModel() {
 
     val heartlist = MutableLiveData<ArrayList<Items>>()
 
-    fun addHeartlist(items : Items){    // 찜 목록에 Items 더하기
+    fun addHeartlist(items : Items){    // 찜 목록에 Items 더하기. ItemAdapter에 넣었음
         heartlist.value?.add(items)
     }
-    fun removeHeartlist(items:Items){   // 찜 목록에서 Items 빼기
+    fun removeHeartlist(items:Items){   // 찜 목록에서 Items 빼기. ItemAdapter에 넣었음
         heartlist.value?.remove(items)
     }
 
