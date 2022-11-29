@@ -7,24 +7,44 @@
     android:layout_height="match_parent"
     tools:context=".LoginFragment">
 
-    <Button
-        android:id="@+id/btn_logout"
+    <ImageButton
+        android:id="@+id/kakao_login"
+        android:layout_width="205dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="103dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/kakao_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="185dp"
+        android:layout_height="161dp"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="113dp"
+        android:src="@drawable/market5icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="로그아웃"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="77dp"
+        android:text="Five Market"
+        android:textColor="#000000"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/kakao_login"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/kakao_login"
-        tools:ignore="SpeakableTextPresentCheck"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="34dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

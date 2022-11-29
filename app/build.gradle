@@ -44,6 +44,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.fragment:fragment-ktx:1.5.4'
+    implementation 'androidx.activity:activity-ktx:1.6.1'
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")     // ViewModel
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")    // LiveData
     implementation "com.kakao.sdk:v2-all:2.11.2" // 전체 모듈 설치, 2.11.0 버전부터 지원
@@ -54,7 +56,8 @@ dependencies {
     implementation "com.kakao.sdk:v2-navi:2.11.2" // 카카오내비
     implementation "com.kakao.sdk:v2-friend:2.11.2"
     implementation 'androidx.core:core-ktx:+'// 카카오톡 소셜 피커, 리소스 번들 파일 포함
-    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.0'  // 파이어베이스 cloud messaging
+    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'   // 파이어베이스 realtime database
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'

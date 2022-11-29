@@ -58,17 +58,7 @@ class LoginFragment : Fragment() {
             handleKakaoLogin()
         }
 
-        binding.btnLogout.setOnClickListener {
-            UserApiClient.instance.logout { error ->
-                if (error != null) {
-                    Toast.makeText(context, "카카오 로그아웃 실패", Toast.LENGTH_SHORT).show()
-                    Log.d("카카오","카카오 로그아웃 실패ㅠㅠ")
-                }else {
-                    Toast.makeText(context, "카카오 로그아웃 성공", Toast.LENGTH_SHORT).show()
-                    Log.d("카카오","카카오 로그아웃 성공!")
-                }
-            }
-        }
+
     }
 
     private fun handleKakaoLogin() {
@@ -96,6 +86,7 @@ class LoginFragment : Fragment() {
                 } else if (token != null) {
                     Toast.makeText(context, "카카오톡으로 로그인 성공", Toast.LENGTH_SHORT).show()
                     Log.e("카카오톡으로 로그인 성공!"," ${token.accessToken}")
+                    findNavController().navigate(R.id.mainScreenFragment)
                 }
             }
         } else {
