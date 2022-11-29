@@ -26,17 +26,13 @@ class Itemlist_cottonFragment : Fragment() {
         binding = FragmentItemlistCottonBinding.inflate(layoutInflater)
         binding?.recItemsCotton?.layoutManager = LinearLayoutManager(context)
         binding?.recItemsCotton?.adapter = ItemsAdapter(items)
-        return binding?.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         itemViewModel.mitems_cotton.observe(viewLifecycleOwner){
             items.value = it
             binding?.recItemsCotton?.adapter?.notifyDataSetChanged()
         }
+        return binding?.root
     }
+
 
     override fun onDestroy() {
         super.onDestroy()
