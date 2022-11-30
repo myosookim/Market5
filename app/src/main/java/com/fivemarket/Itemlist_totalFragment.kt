@@ -39,6 +39,7 @@ class Itemlist_totalFragment : Fragment() {
             binding?.recItems?.post(Runnable { it.filter { x -> x.isLiked } })
         })
     }
+
     override fun onDestroy() {
         super.onDestroy()
         binding = null
