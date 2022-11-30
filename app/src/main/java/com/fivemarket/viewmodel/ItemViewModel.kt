@@ -1,5 +1,6 @@
 package com.fivemarket.viewmodel
 
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.fivemarket.Etype
@@ -9,7 +10,7 @@ import kotlinx.coroutines.launch
 
 class ItemViewModel : ViewModel() {
 
-    // MutableLiveData의 value로 넣을 ArrayList<Items>형식 데이터들
+    // ArrayList<Items>형식 데이터들 (MutableLiveData의 value로 넣을 것들)
     var items_silk = arrayListOf(
         Items("실크","파이브원단",4000, Etype.SILK, R.drawable.main_itemimg1,false),
         Items("부드러운 실크","파이브원단",4000, Etype.SILK, R.drawable.main_itemimg1,false),
@@ -34,46 +35,42 @@ class ItemViewModel : ViewModel() {
         Items("망사 레이스","코지라이프",6000, Etype.LACE, R.drawable.main_itemimg3,false)
     )
 
-    var totalitems = arrayListOf<Items>().apply {
-        addAll(items_silk)
-        addAll(items_cotton)
-        addAll(items_leather)
-        addAll(items_lace)
-    }
 
     // MutableLiveData 형식 데이터들. 실질적으로 쓰일 것
     val mitems_silk = MutableLiveData<ArrayList<Items>>()
     val mitems_cotton = MutableLiveData<ArrayList<Items>>()
     val mitems_leather = MutableLiveData<ArrayList<Items>>()
     val mitems_lace = MutableLiveData<ArrayList<Items>>()
-    val mitems_total = MutableLiveData<ArrayList<Items>>()
     init {
         mitems_silk.value = items_silk
         mitems_cotton.value = items_cotton
         mitems_leather.value = items_leather
         mitems_lace.value = items_lace
-        mitems_total.value = totalitems
     }
 
-    /*
-    var heartlist = arrayListOf<Items>().apply {
-        items.value?.let {
-            for(i in items.value!!){
-                if(i.isLiked){
-                    add(i)
-                }
-            }
+    // Livedata들을 합쳐 관리할 수 있는 MediatorLiveData를 선언.
+    // 각 카테고리의 모든 데이터를 더한 전체 목록으로 쓰임
+    val totalitems :MediatorLiveData<ArrayList<Items>> = MediatorLiveData()
+    init {
+        totalitems.addSource(mitems_silk){
+            totalitems.value = mitems_silk.value
+        }
+        totalitems.addSource(mitems_cotton){
+            totalitems.value = mitems_cotton.value
+        }
+        totalitems.addSource(mitems_leather){
+            totalitems.value = mitems_silk.value
+        }
+        totalitems.addSource(mitems_lace){
+            totalitems.value = mitems_lace.value
         }
     }
-     */
 
     val heartlist = MutableLiveData<ArrayList<Items>>()
 
-    fun addHeartlist(items : Items){    // 찜 목록에 Items 더하기. ItemAdapter에 넣었음
-        heartlist.value?.add(items)
-    }
-    fun removeHeartlist(items:Items){   // 찜 목록에서 Items 빼기. ItemAdapter에 넣었음
-        heartlist.value?.remove(items)
+    fun setData(items: ArrayList<Items>) {
+        heartlist.value = items.filter { x -> x.isLiked } as ArrayList<Items>
+        totalitems.value = items
     }
 
 

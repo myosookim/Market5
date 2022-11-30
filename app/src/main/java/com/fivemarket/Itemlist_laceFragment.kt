@@ -17,7 +17,6 @@ class Itemlist_laceFragment : Fragment() {
 
     var binding: FragmentItemlistLaceBinding? = null
     private val itemViewModel by activityViewModels<ItemViewModel>()
-    private var items : MutableLiveData<ArrayList<Items>> = itemViewModel.mitems_lace
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,17 +25,16 @@ class Itemlist_laceFragment : Fragment() {
     ): View? {
         binding = FragmentItemlistLaceBinding.inflate(layoutInflater)
         binding?.recItemsLace?.layoutManager = LinearLayoutManager(context)
-        binding?.recItemsLace?.adapter = ItemsAdapter(items)
+        binding?.recItemsLace?.adapter = ItemsAdapter(itemViewModel.items_lace)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        itemViewModel.mitems_lace.observe(viewLifecycleOwner){
-            items.value = it
-            binding?.recItemsLace?.adapter?.notifyDataSetChanged()
-        }
+        itemViewModel.mitems_lace.observe(viewLifecycleOwner, Observer {
+            binding?.recItemsLace?.post(Runnable { it.filter { x -> x.isLiked } })
+        })
     }
     override fun onDestroy() {
         super.onDestroy()

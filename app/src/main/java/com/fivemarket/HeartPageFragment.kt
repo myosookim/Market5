@@ -26,13 +26,12 @@ class HeartPageFragment : Fragment() {
     ): View? {
         binding = FragmentHeartPageBinding.inflate(layoutInflater)
         binding?.recHeart?.layoutManager = LinearLayoutManager(context)
-        binding?.recHeart?.adapter = ItemsAdapter(items)
+        binding?.recHeart?.adapter = ItemsAdapter(itemViewModel.heartlist.value!!)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         itemViewModel.heartlist.observe(viewLifecycleOwner){
             items.value = it
             binding?.recHeart?.adapter?.notifyDataSetChanged()

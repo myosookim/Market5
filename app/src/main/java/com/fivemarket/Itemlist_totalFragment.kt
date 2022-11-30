@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fivemarket.databinding.FragmentItemlistSilkBinding
 import com.fivemarket.databinding.FragmentItemlistTotalBinding
@@ -17,7 +20,6 @@ class Itemlist_totalFragment : Fragment() {
 
     var binding : FragmentItemlistTotalBinding? = null
     private val itemViewModel by activityViewModels<ItemViewModel>()
-    private var items : MutableLiveData<ArrayList<Items>> = itemViewModel.mitems_total
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,17 +28,16 @@ class Itemlist_totalFragment : Fragment() {
     ): View? {
         binding = FragmentItemlistTotalBinding.inflate(layoutInflater)
         binding?.recItems?.layoutManager = LinearLayoutManager(context)
-        binding?.recItems?.adapter = ItemsAdapter(items)
+        binding?.recItems?.adapter = ItemsAdapter(itemViewModel.totalitems.value!!)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        itemViewModel.mitems_total.observe(viewLifecycleOwner){
-            items.value = it
-            binding?.recItems?.adapter?.notifyDataSetChanged()
-        }
+        itemViewModel.totalitems.observe(viewLifecycleOwner, Observer {
+            binding?.recItems?.post(Runnable { it.filter { x -> x.isLiked } })
+        })
     }
     override fun onDestroy() {
         super.onDestroy()

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fivemarket.databinding.FragmentItemlistLeatherBinding
 import com.fivemarket.viewmodel.ItemViewModel
@@ -16,7 +17,6 @@ class Itemlist_leatherFragment : Fragment() {
 
     var binding: FragmentItemlistLeatherBinding? = null
     private val itemViewModel by activityViewModels<ItemViewModel>()
-    private var items : MutableLiveData<ArrayList<Items>> = itemViewModel.mitems_leather
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,17 +25,16 @@ class Itemlist_leatherFragment : Fragment() {
     ): View? {
         binding = FragmentItemlistLeatherBinding.inflate(layoutInflater)
         binding?.recItemsLeather?.layoutManager = LinearLayoutManager(context)
-        binding?.recItemsLeather?.adapter = ItemsAdapter(items)
+        binding?.recItemsLeather?.adapter = ItemsAdapter(itemViewModel.items_leather)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        itemViewModel.mitems_leather.observe(viewLifecycleOwner){
-            items.value = it
-            binding?.recItemsLeather?.adapter?.notifyDataSetChanged()
-        }
+        itemViewModel.mitems_leather.observe(viewLifecycleOwner, Observer {
+            binding?.recItemsLeather?.post(Runnable { it.filter { x -> x.isLiked } })
+        })
     }
     override fun onDestroy() {
         super.onDestroy()
