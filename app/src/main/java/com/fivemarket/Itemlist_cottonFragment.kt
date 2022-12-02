@@ -33,7 +33,7 @@ class Itemlist_cottonFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         itemViewModel.mitems_cotton.observe(viewLifecycleOwner, Observer {
-            binding?.recItemsCotton?.post(Runnable { it.filter { x -> x.isLiked } })
+            (binding?.recItemsCotton?.adapter as ItemsAdapter).setData(it)
         })
     }
 

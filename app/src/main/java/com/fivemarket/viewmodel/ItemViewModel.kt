@@ -1,5 +1,7 @@
 package com.fivemarket.viewmodel
 
+import android.content.ClipData.Item
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -34,7 +36,10 @@ class ItemViewModel : ViewModel() {
         Items("코멕스 레이스","코지라이프",6000, Etype.LACE, R.drawable.main_itemimg3,false),
         Items("망사 레이스","코지라이프",6000, Etype.LACE, R.drawable.main_itemimg3,false)
     )
-
+    var totalitems = arrayListOf<Items>()
+    init {
+        totalitems += items_silk + items_cotton + items_leather + items_lace
+    }
 
     // MutableLiveData 형식 데이터들. 실질적으로 쓰일 것
     val mitems_silk = MutableLiveData<ArrayList<Items>>()
@@ -48,30 +53,33 @@ class ItemViewModel : ViewModel() {
         mitems_lace.value = items_lace
     }
 
-    // Livedata들을 합쳐 관리할 수 있는 MediatorLiveData를 선언.
-    // 각 카테고리의 모든 데이터를 더한 전체 목록으로 쓰임
-    val totalitems :MediatorLiveData<ArrayList<Items>> = MediatorLiveData()
+    val mtotalitems :MutableLiveData<ArrayList<Items>> = MutableLiveData()
     init {
-        totalitems.addSource(mitems_silk){
-            totalitems.value = mitems_silk.value
-        }
-        totalitems.addSource(mitems_cotton){
-            totalitems.value = mitems_cotton.value
-        }
-        totalitems.addSource(mitems_leather){
-            totalitems.value = mitems_silk.value
-        }
-        totalitems.addSource(mitems_lace){
-            totalitems.value = mitems_lace.value
-        }
+        mtotalitems.value = totalitems
     }
 
-    val heartlist = MutableLiveData<ArrayList<Items>>()
+    val heartlist = ArrayList<Items>()
+    val mheartlist = MutableLiveData<ArrayList<Items>>()
 
+
+    /* 안 쓰는 코드
     fun setData(items: ArrayList<Items>) {
-        heartlist.value = items.filter { x -> x.isLiked } as ArrayList<Items>
-        totalitems.value = items
+        mheartlist.value = items.filter { x -> x.isLiked } as ArrayList<Items>
+        mtotalitems.value = items
     }
+     */
+
+    fun addHeartedItems(items : Items){
+        heartlist.add(items)
+        mheartlist.value = heartlist
+    }
+
+    fun deleteHeartedItems(items: Items){
+        heartlist.remove(items)
+        mheartlist.value = heartlist
+    }
+
+
 
 
 }

@@ -32,8 +32,8 @@ class Itemlist_leatherFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        itemViewModel.mitems_leather.observe(viewLifecycleOwner, Observer {
-            binding?.recItemsLeather?.post(Runnable { it.filter { x -> x.isLiked } })
+        itemViewModel.mitems_leather.observe(viewLifecycleOwner,{
+            (binding?.recItemsLeather?.adapter as ItemsAdapter).setData(it)
         })
     }
     override fun onDestroy() {

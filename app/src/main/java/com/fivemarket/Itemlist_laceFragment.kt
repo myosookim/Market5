@@ -33,7 +33,7 @@ class Itemlist_laceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         itemViewModel.mitems_lace.observe(viewLifecycleOwner, Observer {
-            binding?.recItemsLace?.post(Runnable { it.filter { x -> x.isLiked } })
+            (binding?.recItemsLace?.adapter as ItemsAdapter).setData(it)
         })
     }
     override fun onDestroy() {

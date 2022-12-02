@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fivemarket.databinding.FragmentHeartPageBinding
 import com.fivemarket.viewmodel.ItemViewModel
@@ -18,7 +19,6 @@ class HeartPageFragment : Fragment() {
 
     private var binding: FragmentHeartPageBinding? = null
     private val itemViewModel by activityViewModels<ItemViewModel>()
-    var items : MutableLiveData<ArrayList<Items>> = itemViewModel.heartlist
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,16 +26,21 @@ class HeartPageFragment : Fragment() {
     ): View? {
         binding = FragmentHeartPageBinding.inflate(layoutInflater)
         binding?.recHeart?.layoutManager = LinearLayoutManager(context)
-        binding?.recHeart?.adapter = ItemsAdapter(itemViewModel.heartlist.value!!)
+        binding?.recHeart?.adapter = ItemsAdapter(itemViewModel.heartlist)
+        for(i in itemViewModel.totalitems){
+            Log.e("${i.name}","찜= ${i.isLiked}")
+        }
+        for(i in itemViewModel.heartlist){
+            Log.d("${i.name}", "${i.isLiked}")
+        }
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        itemViewModel.heartlist.observe(viewLifecycleOwner){
-            items.value = it
-            binding?.recHeart?.adapter?.notifyDataSetChanged()
-        }
+        itemViewModel.mheartlist.observe(requireActivity(), Observer {
+            (binding?.recHeart?.adapter as ItemsAdapter).setData(it)
+        })
     }
 
     override fun onDestroy() {

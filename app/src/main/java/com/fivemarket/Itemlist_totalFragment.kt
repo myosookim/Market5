@@ -28,15 +28,15 @@ class Itemlist_totalFragment : Fragment() {
     ): View? {
         binding = FragmentItemlistTotalBinding.inflate(layoutInflater)
         binding?.recItems?.layoutManager = LinearLayoutManager(context)
-        binding?.recItems?.adapter = ItemsAdapter(itemViewModel.totalitems.value!!)
+        binding?.recItems?.adapter = ItemsAdapter(itemViewModel.totalitems)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        itemViewModel.totalitems.observe(viewLifecycleOwner, Observer {
-            binding?.recItems?.post(Runnable { it.filter { x -> x.isLiked } })
+        itemViewModel.mtotalitems.observe(viewLifecycleOwner, Observer {
+            (binding?.recItems?.adapter as ItemsAdapter).setData(it)
         })
     }
 

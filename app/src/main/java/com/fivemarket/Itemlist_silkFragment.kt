@@ -33,8 +33,8 @@ class Itemlist_silkFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        itemViewModel.mitems_silk.observe(viewLifecycleOwner, Observer {
-            binding?.recItemsSilk?.post(Runnable { it.filter { x -> x.isLiked } })
+        itemViewModel.mitems_silk.observe(viewLifecycleOwner,{
+            (binding?.recItemsSilk?.adapter as ItemsAdapter).setData(it)
         })
     }
     override fun onDestroy() {
