@@ -35,8 +35,8 @@ class ItemViewModel : ViewModel() {
         Items("그린 레이스","하늘하늘",4000, Etype.LACE, R.drawable.lace_green,false),
         Items("토션 레이스","하늘하늘",5000, Etype.LACE, R.drawable.lace_torsion,false),
         Items("랏셀 레이스","보랏빛밤",5000, Etype.LACE, R.drawable.lace_raschel_blossom,false),
-        Items("코멕스 레이스","코지라이프",6000, Etype.LACE, R.drawable.main_itemimg3,false),
-        Items("망사 레이스","코지라이프",6000, Etype.LACE, R.drawable.main_itemimg3,false)
+        Items("코멕스 레이스","코지라이프",8000, Etype.LACE, R.drawable.main_itemimg3,false),
+        Items("망사 레이스","코지라이프",10000, Etype.LACE, R.drawable.lace_net,false)
     )
     var totalitems = arrayListOf<Items>()
     init {
