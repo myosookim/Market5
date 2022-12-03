@@ -14,13 +14,18 @@ class ItemViewModel : ViewModel() {
 
     // ArrayList<Items>형식 데이터들 (MutableLiveData의 value로 넣을 것들)
     var items_silk = arrayListOf(
-        Items("실크","파이브원단",4000, Etype.SILK, R.drawable.main_itemimg1,false),
-        Items("부드러운 실크","파이브원단",4000, Etype.SILK, R.drawable.main_itemimg1,false),
-        Items("더 부드러운 실크","파이브원단",4000, Etype.SILK, R.drawable.main_itemimg1,false)
+        Items("하얀 실크","파이브원단",3000, Etype.SILK, R.drawable.silk_white,false),
+        Items("분홍 실크","파이브원단",4000, Etype.SILK, R.drawable.silk_pink,false),
+        Items("섬세한 화이트 실크","파이브원단",4500, Etype.SILK, R.drawable.silk_white_gorgeous,false),
+        Items("회색 실크","하늘하늘",4000, Etype.SILK, R.drawable.silk_gray,false),
+        Items("보라색 실크","하늘하늘",4000, Etype.SILK, R.drawable.silk_purple,false),
+        Items("섬세한 초록색 실크","파이브원단",4000, Etype.SILK, R.drawable.silk_gorgeous_green,false)
     )
     var items_cotton = arrayListOf(
-        Items("난색 면","파이브원단",5000, Etype.COTTON, R.drawable.main_itemimg2,false),
-        Items("한색 면","면 사랑방",6000, Etype.COTTON, R.drawable.main_itemimg2,false)
+        Items("20수 면 도트","면 사랑방",5000, Etype.COTTON, R.drawable.cotton_dot,false),
+        Items("20수 면 3color","파이브원단",6000, Etype.COTTON, R.drawable.cotton_3color,false),
+        Items("30수 면 아이리스","파이브원단",5000, Etype.COTTON, R.drawable.cotton_iris,false),
+        Items("20수 면 코스모스","파이브원단",5000, Etype.COTTON, R.drawable.cotton_cosmos,false)
     )
     var items_leather = arrayListOf(
         Items("인조 가죽","가죽공방",8000, Etype.LEATHER, R.drawable.leather_black,false),
