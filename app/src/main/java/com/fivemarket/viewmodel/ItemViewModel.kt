@@ -1,14 +1,10 @@
 package com.fivemarket.viewmodel
 
-import android.content.ClipData.Item
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.fivemarket.Etype
 import com.fivemarket.Items
 import com.fivemarket.R
-import kotlinx.coroutines.launch
 
 class ItemViewModel : ViewModel() {
 
@@ -34,10 +30,11 @@ class ItemViewModel : ViewModel() {
         Items("천연 가죽","빈티지공방",10000, Etype.LEATHER, R.drawable.leather_black,false)
     )
     var items_lace = arrayListOf(
-        Items("저렴한 레이스","진희네원단",3000, Etype.LACE, R.drawable.main_itemimg3,false),
-        Items("자수 레이스","하늘하늘",4000, Etype.LACE, R.drawable.main_itemimg3,false),
-        Items("랏셀 레이스","하늘하늘",4000, Etype.LACE, R.drawable.main_itemimg3,false),
-        Items("토션 레이스","하늘하늘",5000, Etype.LACE, R.drawable.main_itemimg3,false),
+        Items("저렴한 레이스","진희네원단",3000, Etype.LACE, R.drawable.lace_cheap,false),
+        Items("꽃 자수 레이스","진희네 원단",4000, Etype.LACE, R.drawable.lace_flower,false),
+        Items("그린 레이스","하늘하늘",4000, Etype.LACE, R.drawable.lace_green,false),
+        Items("토션 레이스","하늘하늘",5000, Etype.LACE, R.drawable.lace_torsion,false),
+        Items("랏셀 레이스","보랏빛밤",5000, Etype.LACE, R.drawable.lace_raschel_blossom,false),
         Items("코멕스 레이스","코지라이프",6000, Etype.LACE, R.drawable.main_itemimg3,false),
         Items("망사 레이스","코지라이프",6000, Etype.LACE, R.drawable.main_itemimg3,false)
     )
