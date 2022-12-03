@@ -29,6 +29,14 @@ class Itemlist_cottonFragment : Fragment() {
         return binding?.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        itemViewModel.mitems_cotton.observe(viewLifecycleOwner,{
+            (binding?.recItemsCotton?.adapter as ItemsAdapter).setData(it)
+        })
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         binding = null

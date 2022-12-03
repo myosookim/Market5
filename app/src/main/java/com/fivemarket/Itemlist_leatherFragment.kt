@@ -28,7 +28,13 @@ class Itemlist_leatherFragment : Fragment() {
         binding?.recItemsLeather?.adapter = ItemsAdapter(itemViewModel.items_leather)
         return binding?.root
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        itemViewModel.mitems_leather.observe(viewLifecycleOwner,{
+            (binding?.recItemsLeather?.adapter as ItemsAdapter).setData(it)
+        })
+    }
     override fun onDestroy() {
         super.onDestroy()
         binding = null
