@@ -24,28 +24,29 @@ class HeartPageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        var ilist = arrayListOf<Items>()
+        for(i in itemViewModel.totalitems){
+            if(i.isLiked){
+                ilist.add(i)
+            }
+        }
+
         binding = FragmentHeartPageBinding.inflate(layoutInflater)
         binding?.recHeart?.layoutManager = LinearLayoutManager(context)
-        binding?.recHeart?.adapter = ItemsAdapter(itemViewModel.heartlist)
+        binding?.recHeart?.adapter = ItemsAdapter(ilist)
+
+        // 찜 여부 확인용 Log.e
         for(i in itemViewModel.totalitems){
             Log.e("${i.name}","찜= ${i.isLiked}")
         }
-        for(i in itemViewModel.heartlist){
-            Log.d("${i.name}", "${i.isLiked}")
-        }
-        return binding?.root
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        itemViewModel.mheartlist.observe(requireActivity(), Observer {
-            (binding?.recHeart?.adapter as ItemsAdapter).setData(it)
-        })
+        return binding?.root
     }
 
     override fun onDestroy() {
         super.onDestroy()
         binding = null
     }
+
 
 }

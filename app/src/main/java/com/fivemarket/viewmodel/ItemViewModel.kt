@@ -58,16 +58,15 @@ class ItemViewModel : ViewModel() {
         mtotalitems.value = totalitems
     }
 
+
+    /* 안 쓰는 코드. 삭제해도 됩니다
+
     val heartlist = ArrayList<Items>()
     val mheartlist = MutableLiveData<ArrayList<Items>>()
-
-
-    /* 안 쓰는 코드
     fun setData(items: ArrayList<Items>) {
         mheartlist.value = items.filter { x -> x.isLiked } as ArrayList<Items>
         mtotalitems.value = items
     }
-     */
 
     fun addHeartedItems(items : Items){
         heartlist.add(items)
@@ -78,8 +77,6 @@ class ItemViewModel : ViewModel() {
         heartlist.remove(items)
         mheartlist.value = heartlist
     }
-
-
-
+     */
 
 }

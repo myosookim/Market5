@@ -32,14 +32,6 @@ class Itemlist_totalFragment : Fragment() {
         return binding?.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        itemViewModel.mtotalitems.observe(viewLifecycleOwner, Observer {
-            (binding?.recItems?.adapter as ItemsAdapter).setData(it)
-        })
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         binding = null

@@ -1,5 +1,7 @@
 package com.fivemarket
 
+import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,7 +13,6 @@ import com.fivemarket.databinding.ListItemsBinding
 import com.fivemarket.viewmodel.ItemViewModel
 
 class ItemsAdapter(var items: ArrayList<Items>):RecyclerView.Adapter<ItemsAdapter.Holder>() {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
             val binding = ListItemsBinding.inflate(LayoutInflater.from(parent.context))
             return Holder(binding)
@@ -47,19 +48,11 @@ class ItemsAdapter(var items: ArrayList<Items>):RecyclerView.Adapter<ItemsAdapte
                         if(items.isLiked == true){
                             binding.btnHeart.setImageResource(R.drawable.heart_24dp_gray)
                             items.isLiked = false
-                            //이 아래부턴 발악 코드... (viewmodel의 heartlist가 1도 변경 안됨)
-                            ItemViewModel().deleteHeartedItems(items)
-                            notifyDataSetChanged()
-                            Log.e("${ItemViewModel().heartlist}","사이즈 : ${ItemViewModel().heartlist.size}")
                             Log.d("${items.name}","찜 : ${items.isLiked}")
                         }
                         else{
                             binding.btnHeart.setImageResource(R.drawable.heart_24dp_red)
                             items.isLiked = true
-                            //이 아래부턴 발악 코드... (viewmodel의 heartlist가 1도 변경 안됨)
-                            ItemViewModel().addHeartedItems(items)
-                            notifyDataSetChanged()
-                            Log.e("${ItemViewModel().heartlist}","사이즈 : ${ItemViewModel().heartlist.size}")
                             Log.d("${items.name}","찜 : ${items.isLiked}")
                         }
                     }

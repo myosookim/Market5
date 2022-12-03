@@ -29,13 +29,6 @@ class Itemlist_laceFragment : Fragment() {
         return binding?.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        itemViewModel.mitems_lace.observe(viewLifecycleOwner, Observer {
-            (binding?.recItemsLace?.adapter as ItemsAdapter).setData(it)
-        })
-    }
     override fun onDestroy() {
         super.onDestroy()
         binding = null
