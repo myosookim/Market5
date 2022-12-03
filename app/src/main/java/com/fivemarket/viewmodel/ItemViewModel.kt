@@ -16,10 +16,10 @@ class ItemViewModel : ViewModel() {
     var items_silk = arrayListOf(
         Items("하얀 실크","파이브원단",3000, Etype.SILK, R.drawable.silk_white,false),
         Items("분홍 실크","파이브원단",4000, Etype.SILK, R.drawable.silk_pink,false),
-        Items("섬세한 화이트 실크","파이브원단",4500, Etype.SILK, R.drawable.silk_white_gorgeous,false),
         Items("회색 실크","하늘하늘",4000, Etype.SILK, R.drawable.silk_gray,false),
         Items("보라색 실크","하늘하늘",4000, Etype.SILK, R.drawable.silk_purple,false),
-        Items("섬세한 초록색 실크","파이브원단",4000, Etype.SILK, R.drawable.silk_gorgeous_green,false)
+        Items("섬세한 화이트 실크","파이브원단",5000, Etype.SILK, R.drawable.silk_white_gorgeous,false),
+        Items("섬세한 초록색 실크","파이브원단",5000, Etype.SILK, R.drawable.silk_gorgeous_green,false)
     )
     var items_cotton = arrayListOf(
         Items("20수 면 도트","면 사랑방",5000, Etype.COTTON, R.drawable.cotton_dot,false),
