@@ -46,7 +46,7 @@ class ItemViewModel : ViewModel() {
         totalitems += items_silk + items_cotton + items_leather + items_lace
     }
 
-    // MutableLiveData 형식 데이터들. 실질적으로 쓰일 것
+    // MutableLiveData 형식 데이터들.
     val mitems_silk = MutableLiveData<ArrayList<Items>>()
     val mitems_cotton = MutableLiveData<ArrayList<Items>>()
     val mitems_leather = MutableLiveData<ArrayList<Items>>()
