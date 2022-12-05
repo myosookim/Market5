@@ -62,7 +62,6 @@ class ItemsAdapter(var items: ArrayList<Items>,var currentFragment: Fragment):Re
                         var bundle = Bundle()
                         bundle.putSerializable("item", mitems)
                         Log.e("프래그먼트 ","${currentFragment}")
-                        Log.e("번들로 보낸 아이템","${mitems.name}")
                         //currentFragment 대신 it으로 해도 되지만, 똑같이 빈칸화면 나오는 상세페이지로 가는 건 매한가지므로
                         // 보험을 위해 일부러 번거롭게 사용함.
                         currentFragment.findNavController().navigate(R.id.itemDetailFragment, bundle)
