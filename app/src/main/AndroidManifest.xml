@@ -1,4 +1,5 @@
-<<<<<<< Original<?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<android: xmlns:android="http://schemas.android.com/apk/res/android"
+    android:Original><?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
 package="com.fivemarket">
 <!-- 인터넷 사용 권한 설정 -->
@@ -37,6 +38,15 @@ package="com.fivemarket">
             android:value="" />
     </activity>
     <activity
+        android:name="com.fivemarket.chatMainActivity"
+        android:exported="false"
+
+        >
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+    </activity>
+    <activity
         android:name=".MainActivity"
         android:exported="true">
         <intent-filter>
@@ -66,7 +76,6 @@ package="com.fivemarket">
     </activity>
 </application>
 
-</manifest>=======
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 <application>
@@ -80,4 +89,3 @@ package="com.fivemarket">
             android:value="" />
     </activity>
 </application>
-</manifest>>>>>>>> Added
