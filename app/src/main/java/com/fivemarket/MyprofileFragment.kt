@@ -1,5 +1,6 @@
 package com.fivemarket
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.fivemarket.databinding.FragmentMyprofileBinding
+import com.fivemarket.viewmodel.ChatLogoinActivity
 import com.kakao.sdk.user.UserApiClient
 
 // TODO: Rename parameter arguments, choose names that match
@@ -30,9 +32,11 @@ class MyprofileFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -42,12 +46,24 @@ class MyprofileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentMyprofileBinding.inflate(inflater)
+
+        val bind = FragmentMyprofileBinding.inflate(layoutInflater)
+        //프로필 채팅 버튼 클릭시 채팅 로그인으로 이동
+        bind.chatting . setOnClickListener{
+            val intent = Intent(this@MyprofileFragment.requireContext(), ChatLogoinActivity::class.java)
+            startActivity(intent)
+
+        }
+
+        binding = FragmentMyprofileBinding.inflate(inflater)
         return binding.root
+        return bind.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         binding.kakaologout.setOnClickListener {
             UserApiClient.instance.logout { error ->

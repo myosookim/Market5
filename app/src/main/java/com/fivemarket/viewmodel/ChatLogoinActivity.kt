@@ -1,0 +1,87 @@
+package com.fivemarket.viewmodel
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+
+import android.widget.ImageButton
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.fivemarket.ChatCheckActivity
+import com.fivemarket.MainActivity
+import com.fivemarket.MyprofileFragment
+import com.fivemarket.R
+import com.fivemarket.databinding.ActivityChatLogoinBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+
+class ChatLogoinActivity : AppCompatActivity() {
+
+    lateinit var binding:ActivityChatLogoinBinding
+
+    lateinit var mAuth: FirebaseAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityChatLogoinBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+       //프로필 채팅 누르면 여기로 이동
+        val chatting : ImageButton = findViewById(R.id.chatting)
+        chatting.setOnClickListener{
+            val MyprofileFragment = MyprofileFragment()
+            val fragment : Fragment? =
+                supportFragmentManager.findFragmentByTag(MyprofileFragment::class.java.simpleName)
+
+            if(fragment !is MyprofileFragment){
+                supportFragmentManager.beginTransaction()
+                    .add(androidx.fragment.R.id.fragment_container_view_tag,
+                        MyprofileFragment, MyprofileFragment::class.java.simpleName)
+                    .commit()
+            }
+            chatting.visibility =  View.GONE
+        }
+
+        //객체 초기화
+        mAuth = Firebase.auth
+
+        //채팅 시작 이벤트
+        binding.chatStartBtn.setOnClickListener{
+            val email = binding.emailEdit.text.toString()
+            val password = binding.passwordEdit.text. toString()
+
+            chatstart(email, password)
+        }
+
+
+
+        //회원 정보 기입 버튼 이벤트
+        binding.checkBtn.setOnClickListener{
+            val intent: Intent = Intent(this@ChatLogoinActivity,ChatCheckActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun chatstart(email: String, password: String){
+        mAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    //성공 시 실행
+                    val intent: Intent = Intent(this@ChatLogoinActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    Toast.makeText(this, "채팅 시작", Toast.LENGTH_SHORT).show()
+                    finish()
+                } else {
+                    // 실패 시 실행
+                    Toast.makeText(this, "채팅 시작 실패", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+
+    }
+
+
+
+
+}

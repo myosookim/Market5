@@ -12,16 +12,20 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.fivemarket.databinding.ActivityMainBinding
+import com.google.firebase.database.DatabaseReference
 import com.kakao.sdk.common.util.Utility
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
+    private lateinit var mDbRef : DatabaseReference //데이터 베이스 객체 초기화
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         var keyHash = Utility.getKeyHash(this)
         Log.e("키해시","$keyHash")
