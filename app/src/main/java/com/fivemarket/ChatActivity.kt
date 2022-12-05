@@ -17,7 +17,7 @@ class ChatActivity : AppCompatActivity() {
     //binding 객체
     private lateinit var binding: ActivityChatBinding
 
-    lateinit var  mAuth:FirebaseAuth//인증 객체
+    lateinit var  mAuth:FirebaseAuth //인증 객체
     lateinit var mDbRef: DatabaseReference //DB 객체
 
     //받는 방과 보내는 방의 대화방 변수

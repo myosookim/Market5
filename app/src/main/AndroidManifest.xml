@@ -32,10 +32,8 @@ package="com.fivemarket">
             android:value="" />
     </activity>
     <activity
-        android:name="com.fivemarket.chatMainActivity"
-        android:exported="false"
-
-        >
+        android:name=".chatMainActivity"
+        android:exported="false">
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />
