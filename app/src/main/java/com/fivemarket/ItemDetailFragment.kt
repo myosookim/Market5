@@ -60,10 +60,6 @@ class ItemDetailFragment : Fragment() {
         data = args?.getSerializable("key", Items::class.java)
     }
      */
-    inner class ItemListAdapterToList{
-        fun getItemdata(items: Items){
-        }
-    }
 
     override fun onDestroy() {
         super.onDestroy()
