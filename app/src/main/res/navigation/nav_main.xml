@@ -70,6 +70,9 @@
         <action
             android:id="@+id/action_itemlist_totalFragment_to_pageMenuFragment"
             app:destination="@id/pageMenuFragment" />
+        <action
+            android:id="@+id/action_itemlist_totalFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemlist_silkFragment"
@@ -79,6 +82,9 @@
         <action
             android:id="@+id/action_itemlist_silkFragment_to_pageMenuFragment"
             app:destination="@id/pageMenuFragment" />
+        <action
+            android:id="@+id/action_itemlist_silkFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemlist_cottonFragment"
@@ -88,6 +94,9 @@
         <action
             android:id="@+id/action_itemlist_cottonFragment_to_pageMenuFragment"
             app:destination="@id/pageMenuFragment" />
+        <action
+            android:id="@+id/action_itemlist_cottonFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemlist_leatherFragment"
@@ -97,6 +106,9 @@
         <action
             android:id="@+id/action_itemlist_leatherFragment_to_pageMenuFragment"
             app:destination="@id/pageMenuFragment" />
+        <action
+            android:id="@+id/action_itemlist_leatherFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemlist_laceFragment"
@@ -106,6 +118,9 @@
         <action
             android:id="@+id/action_itemlist_laceFragment_to_pageMenuFragment"
             app:destination="@id/pageMenuFragment" />
+        <action
+            android:id="@+id/action_itemlist_laceFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/heartPageFragment"
@@ -120,5 +135,16 @@
         <action
             android:id="@+id/action_loginFragment_to_mainScreenFragment"
             app:destination="@id/mainScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDetailFragment"
+        android:name="com.fivemarket.ItemDetailFragment"
+        android:label="fragment_item_detail"
+        tools:layout="@layout/fragment_item_detail" >
+        <argument
+            android:name="item_getfromadapter"
+            app:argType="com.fivemarket.Items"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 </navigation>

@@ -1,11 +1,13 @@
 package com.fivemarket
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -33,7 +35,7 @@ class HeartPageFragment : Fragment() {
 
         binding = FragmentHeartPageBinding.inflate(layoutInflater)
         binding?.recHeart?.layoutManager = LinearLayoutManager(context)
-        binding?.recHeart?.adapter = ItemsAdapter(ilist)
+        binding?.recHeart?.adapter = ItemsAdapter(ilist,this)
         // 찜 여부 확인용 Log.e
         for(i in itemViewModel.totalitems){
             Log.e("${i.name}","찜= ${i.isLiked}")

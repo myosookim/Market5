@@ -1,10 +1,12 @@
 package com.fivemarket
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
@@ -28,7 +30,7 @@ class Itemlist_totalFragment : Fragment() {
     ): View? {
         binding = FragmentItemlistTotalBinding.inflate(layoutInflater)
         binding?.recItems?.layoutManager = LinearLayoutManager(context)
-        binding?.recItems?.adapter = ItemsAdapter(itemViewModel.totalitems)
+        binding?.recItems?.adapter = ItemsAdapter(itemViewModel.totalitems,this)
         return binding?.root
     }
 

@@ -1,10 +1,12 @@
 package com.fivemarket
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -25,7 +27,7 @@ class Itemlist_leatherFragment : Fragment() {
     ): View? {
         binding = FragmentItemlistLeatherBinding.inflate(layoutInflater)
         binding?.recItemsLeather?.layoutManager = LinearLayoutManager(context)
-        binding?.recItemsLeather?.adapter = ItemsAdapter(itemViewModel.items_leather)
+        binding?.recItemsLeather?.adapter = ItemsAdapter(itemViewModel.items_leather,this)
         return binding?.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
