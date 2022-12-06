@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:layout_below="@id/name_text"
-        android:layout_maginTop="5dp"
+        android:layout_marginTop="5dp"
         android:background="@android:color/black"/>
 
 </LinearLayout>

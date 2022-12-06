@@ -25,7 +25,7 @@ private const val ARG_PARAM2 = "param2"
 class MyprofileFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var _binding : FragmentMyprofileBinding? = null
-    private val binding get() = _binding!!
+    private var binding get() = _binding!!
 
     private var param1: String? = null
     private var param2: String? = null
@@ -57,7 +57,6 @@ class MyprofileFragment : Fragment() {
 
         binding = FragmentMyprofileBinding.inflate(inflater)
         return binding.root
-        return bind.root
 
     }
 
