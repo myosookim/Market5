@@ -39,8 +39,8 @@ class chatMainActivity : AppCompatActivity() {
 
         adapter = UserAdapter(this, userList) //context와 userList를 넘겼다.
 
-        binding.userRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.userRecyclerView.adapter = adapter
+        binding.userRecycelrView.layoutManager = LinearLayoutManager(this)
+        binding.userRecycelrView.adapter = adapter
 
         //유저의 정보를 가져옴
         mDbRef.child("user").addValueEventListener(object:ValueEventListener{

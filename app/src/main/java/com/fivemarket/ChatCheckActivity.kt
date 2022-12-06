@@ -49,14 +49,14 @@ class ChatCheckActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // 성공시 실행
-                    Toast.makeText(this, "회원 확인 성공", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "채팅 가입 성공", Toast.LENGTH_SHORT).show()
                     val intent: Intent =
                         Intent(this@ChatCheckActivity, chatMainActivity::class.java)
                     startActivity(intent)
                     addUserToDb(name, email, mAuth.currentUser?.uid!!)
                 } else {
                     // 실패 시 실행
-                    Toast.makeText(this, "회원 확인 실패", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "채팅 가입 실패", Toast.LENGTH_SHORT).show()
                 }
 
             }

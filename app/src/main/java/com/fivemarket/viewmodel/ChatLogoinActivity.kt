@@ -3,6 +3,7 @@ package com.fivemarket.viewmodel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -12,10 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import com.fivemarket.ChatCheckActivity
-import com.fivemarket.MainActivity
-import com.fivemarket.MyprofileFragment
-import com.fivemarket.R
+import com.fivemarket.*
 import com.fivemarket.databinding.ActivityChatLogoinBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -35,10 +33,10 @@ class ChatLogoinActivity : AppCompatActivity() {
         //supportActionBar!!.setTitle("chatting")
         //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        //객체 초기화
+        //객체(인증) 초기화
         mAuth = Firebase.auth
 
-        //채팅 시작 이벤트
+        //문의하기 시작 이벤트
         binding.chatStartBtn.setOnClickListener{
             val email = binding.emailEdit.text.toString()
             val password = binding.passwordEdit.text. toString()
@@ -61,24 +59,22 @@ class ChatLogoinActivity : AppCompatActivity() {
     }
 
     private fun chatstart(email: String, password: String){
-        mAuth.createUserWithEmailAndPassword(email, password)
+        mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     //성공 시 실행
-                    val intent: Intent = Intent(this@ChatLogoinActivity, MainActivity::class.java)
+                    val intent: Intent = Intent(this@ChatLogoinActivity, chatMainActivity::class.java)
                     startActivity(intent)
-                    Toast.makeText(this, "채팅 시작", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "문의하기 시작", Toast.LENGTH_SHORT).show()
                     finish()
                 } else {
                     // 실패 시 실행
-                    Toast.makeText(this, "채팅 시작 실패", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "문의하기 실패", Toast.LENGTH_SHORT).show()
+                    Log.d("Login", "Error: ${task.exception}")
 
                 }
             }
 
     }
-
-
-
 
 }
