@@ -34,6 +34,18 @@ class ItemDetailFragment : Fragment() {
 
         //view?.findViewById<TextView>(R.id.item_name)?.setText(data?.name)
         //view?.findViewById<TextView>(R.id.item_corp)?.setText(data?.co_name)
+
+        //binding을 사용했을 때 빈칸 뷰가 나오는 것은 비정상적.
+        // adapter에서 이쪽으로 내비게이팅 하면서 View에 문제가 생긴 거 아닐까 추측... 아닐수도
+        binding = FragmentItemDetailBinding.inflate(layoutInflater)
+        return binding?.root
+        // 이것을 쓰면 화면이 나오긴 하지만, 화면에는 이 문법대로 세팅한 데이터값이 적용되지 않음(부동).
+        //return inflater.inflate(R.layout.fragment_item_detail, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         binding?.itemName?.text = data?.name
         binding?.itemCorp?.text = data?.co_name
         binding?.itemImage?.setImageResource(data!!.img)
@@ -45,12 +57,6 @@ class ItemDetailFragment : Fragment() {
             Etype.LACE -> binding?.itemCategory?.text = "레이스 원단"
             else -> binding?.itemCategory?.text = ""
         }
-
-        //binding을 사용했을 때 빈칸 뷰가 나오는 것은 비정상적.
-        // adapter에서 이쪽으로 내비게이팅 하면서 View에 문제가 생긴 거 아닐까 추측... 아닐수도
-        return binding?.root
-        // 이것을 쓰면 화면이 나오긴 하지만, 화면에는 이 문법대로 세팅한 데이터값이 적용되지 않음(부동).
-        //return inflater.inflate(R.layout.fragment_item_detail, container, false)
     }
 
     /*

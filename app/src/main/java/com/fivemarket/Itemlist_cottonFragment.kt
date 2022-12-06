@@ -29,7 +29,7 @@ class Itemlist_cottonFragment : Fragment() {
     ): View? {
         binding = FragmentItemlistCottonBinding.inflate(layoutInflater)
         binding?.recItemsCotton?.layoutManager = LinearLayoutManager(context)
-        binding?.recItemsCotton?.adapter = ItemsAdapter(itemViewModel.items_cotton,this)
+        binding?.recItemsCotton?.adapter = ItemsAdapter(itemViewModel.items_cotton)
         return binding?.root
     }
 

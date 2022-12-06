@@ -27,7 +27,7 @@ class Itemlist_laceFragment : Fragment() {
     ): View? {
         binding = FragmentItemlistLaceBinding.inflate(layoutInflater)
         binding?.recItemsLace?.layoutManager = LinearLayoutManager(context)
-        binding?.recItemsLace?.adapter = ItemsAdapter(itemViewModel.items_lace,this)
+        binding?.recItemsLace?.adapter = ItemsAdapter(itemViewModel.items_lace)
         return binding?.root
     }
 

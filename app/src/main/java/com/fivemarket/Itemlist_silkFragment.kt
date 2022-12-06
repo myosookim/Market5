@@ -28,7 +28,7 @@ class Itemlist_silkFragment : Fragment() {
     ): View? {
         binding = FragmentItemlistSilkBinding.inflate(layoutInflater)
         binding?.recItemsSilk?.layoutManager = LinearLayoutManager(context)
-        binding?.recItemsSilk?.adapter = ItemsAdapter(itemViewModel.items_silk,this)
+        binding?.recItemsSilk?.adapter = ItemsAdapter(itemViewModel.items_silk)
         return binding?.root
     }
 

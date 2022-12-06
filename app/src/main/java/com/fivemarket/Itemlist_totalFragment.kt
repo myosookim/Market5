@@ -30,7 +30,7 @@ class Itemlist_totalFragment : Fragment() {
     ): View? {
         binding = FragmentItemlistTotalBinding.inflate(layoutInflater)
         binding?.recItems?.layoutManager = LinearLayoutManager(context)
-        binding?.recItems?.adapter = ItemsAdapter(itemViewModel.totalitems,this)
+        binding?.recItems?.adapter = ItemsAdapter(itemViewModel.totalitems)
         return binding?.root
     }
 

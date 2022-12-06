@@ -27,7 +27,7 @@ class Itemlist_leatherFragment : Fragment() {
     ): View? {
         binding = FragmentItemlistLeatherBinding.inflate(layoutInflater)
         binding?.recItemsLeather?.layoutManager = LinearLayoutManager(context)
-        binding?.recItemsLeather?.adapter = ItemsAdapter(itemViewModel.items_leather,this)
+        binding?.recItemsLeather?.adapter = ItemsAdapter(itemViewModel.items_leather)
         return binding?.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
