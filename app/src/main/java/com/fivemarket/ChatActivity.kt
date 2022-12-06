@@ -4,11 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fivemarket.databinding.ActivityChatBinding
-import com.fivemarket.databinding.ActivityChatMainBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.database.*
-import com.google.firebase.ktx.Firebase
 
 class ChatActivity : AppCompatActivity() {
 
@@ -33,11 +30,11 @@ class ChatActivity : AppCompatActivity() {
 
         //초기화
         messageList = ArrayList()
-        val messgeAdapter: MessgeAdapter = MessgeAdapter(this, messageList)
+        val messageAdapter: MessageAdapter = MessageAdapter(this, messageList)
 
-        //
+        //RecyclerView
         binding.chatRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.chatRecyclerView.adapter=messgeAdapter
+        binding.chatRecyclerView.adapter=messageAdapter
 
         //넘어온 데이터 변수를 담는다.->키 값을 넣으면 된다.
         receiverName = intent.getStringExtra("name").toString()
@@ -75,7 +72,7 @@ class ChatActivity : AppCompatActivity() {
             //입력값 초기화
             binding.messageEdit.setText("")
         }
-        //메세지 가져오기
+        //메세지 전송 버튼 기능 구현
         mDbRef.child("chats").child(senderRoom).child("messages")
             .addValueEventListener(object: ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -89,7 +86,7 @@ class ChatActivity : AppCompatActivity() {
 
                     }
                     //적용
-                    messgeAdapter.notifyDataSetChanged()//화면에 메세지 내용 출력
+                    messageAdapter.notifyDataSetChanged()//화면에 메세지 내용 출력
 
                 }
 

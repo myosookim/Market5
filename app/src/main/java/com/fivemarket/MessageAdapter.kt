@@ -8,11 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 
-class MessgeAdapter (private val context: Context, private val messageList: ArrayList<Message>):
+class MessageAdapter (private val context: Context, private val messageList: ArrayList<Message>):
     RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
-    private val receive = 1
-    private val send = 2
+    private val receive = 1 //받는 타입
+    private val send = 2 //보내는 타입
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         //현재 메세지
@@ -44,7 +44,7 @@ class MessgeAdapter (private val context: Context, private val messageList: Arra
 
     override fun getItemViewType(position: Int): Int {
 
-        val currentMessage = messageList[position]
+        val currentMessage = messageList[position] //메세지 값
 
         return if(FirebaseAuth.getInstance().currentUser?.uid.equals(currentMessage.sendId)){
             send

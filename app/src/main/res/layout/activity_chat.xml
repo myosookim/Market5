@@ -12,24 +12,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/input_layout"
-        />
+        android:layout_above="@+id/input_layout"/>
 
     <!--입력 레이아웃-->
     <LinearLayout
         android:id="@+id/input_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="177dp"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
         android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
         android:weightSum="100">
 
         <EditText
             android:id="@+id/message_edit"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="52dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
             android:layout_weight="85"
             android:background="@drawable/background"
             android:hint="메세지 입력"
@@ -38,14 +38,14 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/send_btn"
             android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="15"
-            android:text="전송"
-            android:textColor="@color/white"
             android:background="@drawable/btn_background"
-            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            android:text="전송"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
