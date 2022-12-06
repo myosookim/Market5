@@ -30,8 +30,8 @@ class ChatLogoinActivity : AppCompatActivity() {
         binding = ActivityChatLogoinBinding.inflate(layoutInflater)
         setContentView(binding.root)
        //프로필 채팅 누르면 여기로 이동
-        supportActionBar!!.setTitle("chatting")
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar!!.setTitle("chatting")
+        //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         //객체 초기화
         mAuth = Firebase.auth
