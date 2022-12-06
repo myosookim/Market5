@@ -21,7 +21,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var receiverRoom: String //받는 대화방
     private lateinit var senderRoom: String //보낸 대화방
 
-    private lateinit var messageList : ArrayList<Message>
+    private lateinit var messageList : ArrayList<Message> //messageList에는 message 타입의 데이터가 들어감
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,37 +60,36 @@ class ChatActivity : AppCompatActivity() {
         binding.sendBtn.setOnClickListener{
 
             val message = binding.messageEdit.text.toString() //입력한 메세지 값을 메세지에 넣고
-            val messageObject = Message(message, senderUid) // 메세지 클래스 형식의 값은 messageObject에 넣는다.
+            val messageObject = Message(message, senderUid) // 메세지 클래스 형식의 값은 message Object에 넣는다.
 
-            //메세지를 데이터 베이스에 저장하기, chats 라는 공간을 만들어 그 안에 sendroom값으로 공간을 생성한다.그리고
+            //메세지를 데이터 베이스에 저장하기, chats 라는 공간을 만들어 그 안에 sendRoom값으로 공간을 생성한다.그리고
             mDbRef.child("chats").child(senderRoom).child("messages").push()//sendRoom 안에 message로 공간을 생성
                 .setValue(messageObject).addOnSuccessListener {
                     //저장 성공 시
                     mDbRef.child("chats").child(receiverRoom).child("messages").push()
-                        .setValue(messageObject) //receiverRoom안에 전송된 저장
+                        .setValue(messageObject) //receiverRoom안에 전송되어 저장
                 }
-            //입력값 초기화
+            //메세지를 전송하고 입력 부분을 초기화
             binding.messageEdit.setText("")
         }
         //메세지 전송 버튼 기능 구현
-        mDbRef.child("chats").child(senderRoom).child("messages")
+        mDbRef.child("chats").child(senderRoom).child("messages")//chats이 sendRoom으로 변경,이를 message로 변경해 onDataChange 함수 실행
             .addValueEventListener(object: ValueEventListener{
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    messageList.clear()
+                override fun onDataChange(snapshot: DataSnapshot) { //message안에 있는 데이터가 snapshot안에 있고 이는 postSnapshat에 담음
+                    messageList.clear()// messageList안에 데이터를 비워줌
 
                     for(postSnapshat in snapshot.children){
 
                         val message = postSnapshat.getValue(Message::class.java)
                         messageList.add(message!!) //snapshot데이터를 postSnapshot에 담아 반복하고 값을 message에 넣는다.
                         //죄종적으로 message를 messageList에 담는다.
-
                     }
-                    //적용
+
                     messageAdapter.notifyDataSetChanged()//화면에 메세지 내용 출력
 
                 }
 
-                override fun onCancelled(error: DatabaseError) {
+                override fun onCancelled(error: DatabaseError) { //오류가 발생하면 실행된다.
 
                 }
 
