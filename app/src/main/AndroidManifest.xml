@@ -17,6 +17,14 @@ package="com.fivemarket">
     android:supportsRtl="true"
     android:theme="@style/Theme.Market5"
     tools:targetApi="31">
+
+    <activity
+        android:name=".viewmodel.ChatLogoinActivity"
+        android:exported="false">
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+    </activity>
     <activity
         android:name=".ChatCheckActivity"
         android:exported="false">
