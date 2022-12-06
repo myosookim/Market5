@@ -71,6 +71,9 @@ class MainActivity : AppCompatActivity() {
             R.id.acb_menu->{
                 binding.fragmentContainerView.findNavController().navigate(R.id.pageMenuFragment)
             }
+            R.id.acb_chatting->{
+                binding.fragmentContainerView.findNavController().navigate(R.id.chatLogoinActivity)
+            }
         }
         return super.onOptionsItemSelected(item)
     }
