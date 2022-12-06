@@ -51,11 +51,41 @@ class ItemDetailFragment : Fragment() {
         binding?.itemImage?.setImageResource(data!!.img)
         binding?.itemPrices?.text = data?.price.toString()
         when(data?.type){
-            Etype.SILK -> binding?.itemCategory?.text = "실크 원단"
-            Etype.COTTON -> binding?.itemCategory?.text = "면 원단"
-            Etype.LEATHER -> binding?.itemCategory?.text = "가죽 원단"
-            Etype.LACE -> binding?.itemCategory?.text = "레이스 원단"
-            else -> binding?.itemCategory?.text = ""
+            Etype.SILK ->{
+                binding?.itemCategory?.text = "실크 원단"
+                // 디자인 방식에 대해 고민중
+                binding?.imgFirst?.setImageResource(R.drawable.firstsilk)
+                binding?.imgSecond?.setImageResource(R.drawable.secondsilk)
+            }
+            Etype.COTTON ->{
+                binding?.itemCategory?.text = "면 원단"
+            }
+            Etype.LEATHER ->{
+                binding?.itemCategory?.text = "가죽 원단"
+            }
+            Etype.LACE ->{
+                binding?.itemCategory?.text = "레이스 원단"
+            }
+            else ->{
+                binding?.itemCategory?.text = ""
+            }
+        }
+        if(data?.isLiked == true)
+            binding?.btnHeartIndetail?.setImageResource(R.drawable.heart_24dp_red)
+        else
+            binding?.btnHeartIndetail?.setImageResource(R.drawable.heart_24dp_gray)
+
+        binding?.btnHeartIndetail?.setOnClickListener {
+            if(data?.isLiked == true){
+                binding?.btnHeartIndetail?.setImageResource(R.drawable.heart_24dp_gray)
+                data?.isLiked = false
+                Log.d("${data?.name}","찜 : ${data?.isLiked}")
+            }
+            else{
+                binding?.btnHeartIndetail?.setImageResource(R.drawable.heart_24dp_red)
+                data?.isLiked = true
+                Log.d("${data?.name}","찜 : ${data?.isLiked}")
+            }
         }
     }
 

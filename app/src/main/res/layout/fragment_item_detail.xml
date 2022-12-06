@@ -7,6 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".ItemDetailFragment">
 
+    <ImageButton
+        android:id="@+id/btn_heart_indetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@android:color/transparent"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_name"
+        app:layout_constraintStart_toEndOf="@+id/item_name"
+        app:layout_constraintTop_toTopOf="@+id/item_name"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/heart_24dp_gray" />
+
     <TextView
         android:id="@+id/item_category"
         android:layout_width="wrap_content"
@@ -35,6 +48,7 @@
         android:layout_height="250dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
+        android:background="#5EEDEDED"
         android:src="@drawable/main_itemimg1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/twodpline_pur" />
@@ -44,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:text="이름"
         android:textColor="#000000"
         android:textSize="22sp"
@@ -66,10 +80,10 @@
         android:id="@+id/item_corp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="156dp"
         android:text="업체"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/item_prices"
         app:layout_constraintTop_toBottomOf="@+id/item_prices" />
 
@@ -87,23 +101,33 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/img_first"
         android:layout_width="168dp"
         android:layout_height="124dp"
         android:layout_marginTop="60dp"
         android:src="@drawable/main_itemimg2"
-        app:layout_constraintEnd_toStartOf="@+id/imageView8"
+        app:layout_constraintEnd_toStartOf="@+id/img_second"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_image" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/img_second"
         android:layout_width="168dp"
         android:layout_height="124dp"
         android:src="@drawable/main_itemimg3"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintBottom_toBottomOf="@+id/img_first"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+        app:layout_constraintStart_toEndOf="@+id/img_first"
+        app:layout_constraintTop_toTopOf="@+id/img_first" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" @fivemarket"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_image"
+        app:layout_constraintEnd_toEndOf="@+id/item_image" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
