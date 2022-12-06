@@ -8,13 +8,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.fivemarket.databinding.FragmentItemDetailBinding
+import com.fivemarket.viewmodel.ItemViewModel
 
 class ItemDetailFragment : Fragment() {
     var binding: FragmentItemDetailBinding? = null
     private var data : Items? = null
+    private val itemViewModel by activityViewModels<ItemViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -86,6 +90,12 @@ class ItemDetailFragment : Fragment() {
                 data?.isLiked = true
                 Log.d("${data?.name}","찜 : ${data?.isLiked}")
             }
+        }
+        // 구매버튼 클릭시 뷰모델로 데이터 추가
+        binding?.button?.setOnClickListener {
+            Log.d("+button", "$data")
+            itemViewModel.addOrderHistory(data!!)
+            Toast.makeText(context, "구매해 주셔서 감사합니다!", Toast.LENGTH_SHORT).show()
         }
     }
 

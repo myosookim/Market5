@@ -1,5 +1,6 @@
 package com.fivemarket.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.fivemarket.Etype
@@ -7,6 +8,15 @@ import com.fivemarket.Items
 import com.fivemarket.R
 
 class ItemViewModel : ViewModel() {
+
+    // 구매버튼 클릭시 아래 리스트에 데이터 추가
+    private val _orderHistory = MutableLiveData<List<Items>>()
+    val orderHistory: LiveData<List<Items>> get() = _orderHistory
+
+    // 원래 있던 리스트 뒤에 이어붙이기
+    fun addOrderHistory(list: Items) {
+        _orderHistory.value = (orderHistory.value ?: emptyList()) + listOf(list)
+    }
 
     // ArrayList<Items>형식 데이터들 (MutableLiveData의 value로 넣을 것들)
     var items_silk = arrayListOf(

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.fivemarket.databinding.FragmentMyprofileBinding
 import com.kakao.sdk.user.UserApiClient
 
@@ -59,6 +60,10 @@ class MyprofileFragment : Fragment() {
                     Log.d("카카오","카카오 로그아웃 성공!")
                 }
             }
+        }
+
+        binding.orderHistory.setOnClickListener {
+            findNavController().navigate(R.id.buyFragment)
         }
     }
     companion object {
