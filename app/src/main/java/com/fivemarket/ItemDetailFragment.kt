@@ -66,9 +66,13 @@ class ItemDetailFragment : Fragment() {
             }
             Etype.LEATHER ->{
                 binding?.itemCategory?.text = "가죽 원단"
+                binding?.imgFirst?.setImageResource(R.drawable.firstleather)
+                binding?.imgSecond?.setImageResource(R.drawable.secondleather)
             }
             Etype.LACE ->{
                 binding?.itemCategory?.text = "레이스 원단"
+                binding?.imgFirst?.setImageResource(R.drawable.firstlace)
+                binding?.imgSecond?.setImageResource(R.drawable.secondlace)
             }
             else ->{
                 binding?.itemCategory?.text = ""

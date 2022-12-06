@@ -54,7 +54,7 @@ class PageMenuFragment : Fragment() {
             findNavController().navigate(R.id.action_pageMenuFragment_to_itemlist_laceFragment)
         }
         binding?.gotoPurchaselistBtn?.setOnClickListener {
-            findNavController().navigate(R.id.action_pageMenuFragment_to_heartPageFragment)
+            findNavController().navigate(R.id.action_pageMenuFragment_to_buyFragment)
         }
     }
 

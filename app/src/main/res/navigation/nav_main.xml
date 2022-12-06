@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_pageMenuFragment_to_heartPageFragment"
             app:destination="@id/heartPageFragment" />
+        <action
+            android:id="@+id/action_pageMenuFragment_to_buyFragment"
+            app:destination="@id/buyFragment" />
     </fragment>
     <fragment
         android:id="@+id/myprofileFragment"

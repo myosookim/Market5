@@ -11,13 +11,12 @@
         android:id="@+id/btn_heart_indetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
         android:background="@android:color/transparent"
         android:padding="4dp"
-        app:layout_constraintBottom_toBottomOf="@+id/item_name"
-        app:layout_constraintStart_toEndOf="@+id/item_name"
-        app:layout_constraintTop_toTopOf="@+id/item_name"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="@+id/item_corp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/item_corp"
         app:srcCompat="@drawable/heart_24dp_gray"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
@@ -105,12 +104,12 @@
         android:id="@+id/img_first"
         android:layout_width="168dp"
         android:layout_height="124dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="22dp"
         android:src="@drawable/main_itemimg2"
         app:layout_constraintEnd_toStartOf="@+id/img_second"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_image" />
+        app:layout_constraintTop_toBottomOf="@+id/with" />
 
     <ImageView
         android:id="@+id/img_second"
@@ -130,5 +129,17 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/item_image"
         app:layout_constraintEnd_toEndOf="@+id/item_image" />
+
+    <TextView
+        android:id="@+id/with"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
+        android:text="함께 본 상품들"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

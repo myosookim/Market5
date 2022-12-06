@@ -76,6 +76,9 @@ class MyprofileFragment : Fragment() {
         binding.orderHistory.setOnClickListener {
             findNavController().navigate(R.id.buyFragment)
         }
+        binding.follow.setOnClickListener {
+            findNavController().navigate(R.id.heartPageFragment)
+        }
     }
     companion object {
         /**

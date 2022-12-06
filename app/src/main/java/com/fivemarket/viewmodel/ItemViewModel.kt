@@ -28,16 +28,20 @@ class ItemViewModel : ViewModel() {
         Items("섬세한 초록색 실크","파이브원단",5000, Etype.SILK, R.drawable.silk_gorgeous_green,false)
     )
     var items_cotton = arrayListOf(
+        Items("30수 코튼 베이직","파이브원단",4000, Etype.COTTON, R.drawable.cotton_basic,false),
         Items("20수 면 도트","면 사랑방",5000, Etype.COTTON, R.drawable.cotton_dot,false),
+        Items("30수 면 워싱광목","파이브원단",5000, Etype.COTTON, R.drawable.cotton_washing,false),
         Items("20수 면 3color","파이브원단",6000, Etype.COTTON, R.drawable.cotton_3color,false),
-        Items("30수 면 아이리스","파이브원단",5000, Etype.COTTON, R.drawable.cotton_iris,false),
-        Items("20수 면 코스모스","파이브원단",5000, Etype.COTTON, R.drawable.cotton_cosmos,false)
+        Items("30수 면 아이리스","오조원단",6000, Etype.COTTON, R.drawable.cotton_iris,false),
+        Items("20수 면 코스모스","오조원단",6500, Etype.COTTON, R.drawable.cotton_cosmos,false)
     )
     var items_leather = arrayListOf(
-        Items("인조 가죽","가죽공방",8000, Etype.LEATHER, R.drawable.leather_black,false),
-        Items("얇은 가죽","가죽공방",8000, Etype.LEATHER, R.drawable.leather_black,false),
-        Items("두꺼운 가죽","가죽공방",9000, Etype.LEATHER, R.drawable.leather_black,false),
-        Items("천연 가죽","빈티지공방",10000, Etype.LEATHER, R.drawable.leather_black,false)
+        Items("갈색 가죽","가죽공방",8000, Etype.LEATHER, R.drawable.leather_brown,false),
+        Items("크리미 인조 가죽","가죽공방",8000, Etype.LEATHER, R.drawable.leather_creamy,false),
+        Items("짙은 갈색 가죽","빈티지공방",9000, Etype.LEATHER, R.drawable.leather_darkbrown,false),
+        Items("4color 고급 가죽","가죽공방",9000, Etype.LEATHER, R.drawable.leather_fourcolor,false),
+        Items("검은 가죽","빈티지공방",10000, Etype.LEATHER, R.drawable.leather_black,false),
+        Items("악어 가죽","빈티지공방",15000, Etype.LEATHER, R.drawable.leather_croc,false)
     )
     var items_lace = arrayListOf(
         Items("저렴한 레이스","진희네원단",3000, Etype.LACE, R.drawable.lace_cheap,false),
@@ -45,7 +49,7 @@ class ItemViewModel : ViewModel() {
         Items("그린 레이스","하늘하늘",4000, Etype.LACE, R.drawable.lace_green,false),
         Items("토션 레이스","하늘하늘",5000, Etype.LACE, R.drawable.lace_torsion,false),
         Items("랏셀 레이스","보랏빛밤",5000, Etype.LACE, R.drawable.lace_raschel_blossom,false),
-        Items("코멕스 레이스","코지라이프",8000, Etype.LACE, R.drawable.main_itemimg3,false),
+        Items("코멕스 레이스","코지라이프",8000, Etype.LACE, R.drawable.lace_comex,false),
         Items("망사 레이스","코지라이프",10000, Etype.LACE, R.drawable.lace_net,false)
     )
     var totalitems = arrayListOf<Items>()

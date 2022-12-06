@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         // 주의!! : 툴바 코드는 onCreate의 제일 마지막 부분에 있어야 합니다.
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24)
 
         // 앱바 제어를 위한 툴바 접근
         val actionBar: ActionBar? = supportActionBar
@@ -65,14 +66,14 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                finish()
-                return true
-            }
-            R.id.acb_menu->{
                 binding.fragmentContainerView.findNavController().navigate(R.id.pageMenuFragment)
             }
             R.id.acb_chatting->{
                 binding.fragmentContainerView.findNavController().navigate(R.id.chatLogoinActivity)
+            }
+            R.id.acb_exit->{
+                finish()
+                return true
             }
         }
         return super.onOptionsItemSelected(item)
