@@ -1,5 +1,6 @@
 package com.fivemarket
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.fivemarket.databinding.FragmentMyprofileBinding
+import com.fivemarket.viewmodel.ChatLogoinActivity
 import com.kakao.sdk.user.UserApiClient
 
 // TODO: Rename parameter arguments, choose names that match
@@ -31,9 +33,11 @@ class MyprofileFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -44,11 +48,18 @@ class MyprofileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMyprofileBinding.inflate(inflater)
+
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding?.chatting?.setOnClickListener{
+            findNavController().navigate(R.id.action_myprofileFragment_to_chatLogoinActivity)
+        }
+
 
         binding.kakaologout.setOnClickListener {
             UserApiClient.instance.logout { error ->

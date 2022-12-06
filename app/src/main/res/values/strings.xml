@@ -2,4 +2,6 @@
     <string name="app_name">Market5</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="receive_message">받은 메세지</string>
+    <string name="send_message">보내는 메세지</string>
 </resources>

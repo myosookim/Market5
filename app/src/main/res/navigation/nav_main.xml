@@ -64,6 +64,9 @@
         <action
             android:id="@+id/action_myprofileFragment_to_buyFragment"
             app:destination="@id/buyFragment" />
+        <action
+            android:id="@+id/action_myprofileFragment_to_chatLogoinActivity"
+            app:destination="@id/chatLogoinActivity" />
     </fragment>
     <fragment
         android:id="@+id/itemlist_totalFragment"
@@ -139,6 +142,11 @@
             android:id="@+id/action_loginFragment_to_mainScreenFragment"
             app:destination="@id/mainScreenFragment" />
     </fragment>
+    <activity
+        android:id="@+id/chatLogoinActivity"
+        android:name="com.fivemarket.viewmodel.ChatLogoinActivity"
+        android:label="activity_chat_logoin"
+        tools:layout="@layout/activity_chat_logoin" />
     <fragment
         android:id="@+id/itemDetailFragment"
         android:name="com.fivemarket.ItemDetailFragment"
