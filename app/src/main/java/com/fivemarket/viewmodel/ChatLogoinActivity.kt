@@ -3,6 +3,8 @@ package com.fivemarket.viewmodel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 
 import android.widget.ImageButton
@@ -28,20 +30,8 @@ class ChatLogoinActivity : AppCompatActivity() {
         binding = ActivityChatLogoinBinding.inflate(layoutInflater)
         setContentView(binding.root)
        //프로필 채팅 누르면 여기로 이동
-        val chatting : ImageButton = findViewById(R.id.chatting)
-        chatting.setOnClickListener{
-            val MyprofileFragment = MyprofileFragment()
-            val fragment : Fragment? =
-                supportFragmentManager.findFragmentByTag(MyprofileFragment::class.java.simpleName)
-
-            if(fragment !is MyprofileFragment){
-                supportFragmentManager.beginTransaction()
-                    .add(androidx.fragment.R.id.fragment_container_view_tag,
-                        MyprofileFragment, MyprofileFragment::class.java.simpleName)
-                    .commit()
-            }
-            chatting.visibility =  View.GONE
-        }
+        supportActionBar!!.setTitle("chatting")
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         //객체 초기화
         mAuth = Firebase.auth

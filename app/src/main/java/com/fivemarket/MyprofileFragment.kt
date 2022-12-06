@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.fivemarket.databinding.FragmentMyprofileBinding
 import com.fivemarket.viewmodel.ChatLogoinActivity
 import com.kakao.sdk.user.UserApiClient
@@ -46,22 +47,18 @@ class MyprofileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val bind = FragmentMyprofileBinding.inflate(layoutInflater)
-        //프로필 채팅 버튼 클릭시 채팅 로그인으로 이동
-        bind.chatting . setOnClickListener{
-            val intent = Intent(this@MyprofileFragment.requireContext(), ChatLogoinActivity::class.java)
-            startActivity(intent)
-
-        }
-
         _binding = FragmentMyprofileBinding.inflate(inflater)
+
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding?.chatting?.setOnClickListener{
+            findNavController().navigate(R.id.action_myprofileFragment_to_chatLogoinActivity)
+        }
 
 
         binding.kakaologout.setOnClickListener {
