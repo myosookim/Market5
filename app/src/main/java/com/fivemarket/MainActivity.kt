@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -24,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         var keyHash = Utility.getKeyHash(this)
-        Log.e("키해시","$keyHash")
         // 하단바
         val navcontroller = binding.fragmentContainerView.getFragment<NavHostFragment>().navController
         binding.bottomNavigationView.setupWithNavController(navcontroller)
@@ -81,9 +81,9 @@ class MainActivity : AppCompatActivity() {
      */
 
     /*
-    private fun getForegroundFragment(): Fragment? {
+    fun getForegroundFragment(): Fragment? {
         val navHostFragment: Fragment? =
-            supportFragmentManager.findFragmentById(androidx.navigation.fragment.R.id.nav_host_fragment)
+            supportFragmentManager.findFragmentById(R.id.nav_main)
         return navHostFragment?.childFragmentManager?.fragments?.get(0)
     }
 

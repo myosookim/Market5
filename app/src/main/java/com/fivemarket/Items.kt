@@ -1,5 +1,7 @@
 package com.fivemarket
 
+import java.io.Serializable
+
 enum class Etype{   // 실크, 면, 가죽 , 레이스
     SILK,
     COTTON,
@@ -14,4 +16,4 @@ class Items(
     val type:Etype,       // 종류 ( 실크, 면, 가죽 , 레이스 )
     val img:Int,         // 상품 이미지
     var isLiked:Boolean
-)
+): Serializable
