@@ -30,7 +30,7 @@ class UserAdapter (private val context: Context, private val userList: ArrayList
 
             //넘길 데이터?
             intent.putExtra("name",currentUser.name)
-            intent.putExtra("uid", currentUser.uId)
+            intent.putExtra("uId", currentUser.uId)
 
             context.startActivity(intent)
         }

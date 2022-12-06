@@ -14,7 +14,7 @@ class ChatActivity : AppCompatActivity() {
     //binding 객체
     private lateinit var binding: ActivityChatBinding
 
-    lateinit var  mAuth:FirebaseAuth //인증 객체
+    lateinit var  mAuth: FirebaseAuth  //인증 객체
     lateinit var mDbRef: DatabaseReference //DB 객체
 
     //받는 방과 보내는 방의 대화방 변수
@@ -78,9 +78,9 @@ class ChatActivity : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) { //message안에 있는 데이터가 snapshot안에 있고 이는 postSnapshat에 담음
                     messageList.clear()// messageList안에 데이터를 비워줌
 
-                    for(postSnapshat in snapshot.children){
+                    for(postSnapshot in snapshot.children){
 
-                        val message = postSnapshat.getValue(Message::class.java)
+                        val message = postSnapshot.getValue(Message::class.java)
                         messageList.add(message!!) //snapshot데이터를 postSnapshot에 담아 반복하고 값을 message에 넣는다.
                         //죄종적으로 message를 messageList에 담는다.
                     }
