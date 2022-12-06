@@ -1,6 +1,7 @@
 package com.fivemarket
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,16 @@ class UserAdapter (private val context: Context, private val userList: ArrayList
 
         val currentUser = userList[position] //userlist안에 있는 데이터를 current에 넣는다.
         holder.nameText.text = currentUser.name //currentUser에 있는 name값을 TextView안에 넣는다.
+        holder.itemView.setOnClickListener{
+            val intent = Intent(context, ChatActivity::class.java)
+
+            //넘길 데이터?
+            intent.putExtra("name",currentUser.name)
+            intent.putExtra("uid", currentUser.uId)
+
+            context.startActivity(intent)
+        }
+
 
 
     }                //userList에 갯수를 돌려준다.

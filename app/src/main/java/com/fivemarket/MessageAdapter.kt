@@ -14,6 +14,7 @@ class MessageAdapter (private val context: Context, private val messageList: Arr
     private val receive = 1 //받는 타입
     private val send = 2 //보내는 타입
 
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         //현재 메세지
         val currentMessage = messageList[position]
@@ -61,8 +62,5 @@ class MessageAdapter (private val context: Context, private val messageList: Arr
     class ReceiveViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val receiveMessage: TextView = itemView.findViewById(R.id.receive_message_text)
     }
-
-
-
 
 }

@@ -25,7 +25,7 @@ class ChatActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityChatBinding.inflate(layoutInflater)
+        binding = ActivityChatBinding.inflate(layoutInflater) //선언한 객체 초기화
         setContentView(binding.root)
 
         //초기화
@@ -43,7 +43,7 @@ class ChatActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         mDbRef = FirebaseDatabase.getInstance().reference
 
-        //보낸 사람 UID
+        //보낸 사람/받는 사람 UID
         val senderUid = mAuth.currentUser?.uid
 
         //보낸 유저 방
@@ -59,15 +59,15 @@ class ChatActivity : AppCompatActivity() {
         //메세지 전송 버튼
         binding.sendBtn.setOnClickListener{
 
-            val message = binding.messageEdit.text.toString()
-            val messageObject = Message(message, senderUid)
+            val message = binding.messageEdit.text.toString() //입력한 메세지 값을 메세지에 넣고
+            val messageObject = Message(message, senderUid) // 메세지 클래스 형식의 값은 messageObject에 넣는다.
 
-            //데이터 저장하기
-            mDbRef.child("chats").child(senderRoom).child("messages").push()
+            //메세지를 데이터 베이스에 저장하기, chats 라는 공간을 만들어 그 안에 sendroom값으로 공간을 생성한다.그리고
+            mDbRef.child("chats").child(senderRoom).child("messages").push()//sendRoom 안에 message로 공간을 생성
                 .setValue(messageObject).addOnSuccessListener {
                     //저장 성공 시
                     mDbRef.child("chats").child(receiverRoom).child("messages").push()
-                        .setValue(messageObject)
+                        .setValue(messageObject) //receiverRoom안에 전송된 저장
                 }
             //입력값 초기화
             binding.messageEdit.setText("")
