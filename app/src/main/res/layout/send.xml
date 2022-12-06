@@ -11,7 +11,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/btn_background"
         android:padding="10dp"
-        android:text="보내는 메세지"
+        android:text="@string/send_message"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
 

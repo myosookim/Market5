@@ -11,7 +11,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/background"
         android:padding="10dp"
-        android:text="받은 메세지"
+        android:text="@string/receive_message"
         android:textSize="18sp" />
 
 </RelativeLayout>
