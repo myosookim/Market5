@@ -21,9 +21,9 @@ import com.google.firebase.ktx.Firebase
 
 class ChatLogoinActivity : AppCompatActivity() {
 
-    lateinit var binding:ActivityChatLogoinBinding
+    lateinit var binding:ActivityChatLogoinBinding //binding 객체 생성
 
-    lateinit var mAuth: FirebaseAuth
+    lateinit var mAuth: FirebaseAuth //인증 객체
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,12 +36,12 @@ class ChatLogoinActivity : AppCompatActivity() {
         //객체(인증) 초기화
         mAuth = Firebase.auth
 
-        //문의하기 시작 이벤트
+        //문의하기 시작 버튼
         binding.chatStartBtn.setOnClickListener{
             val email = binding.emailEdit.text.toString()
             val password = binding.passwordEdit.text. toString()
 
-            chatstart(email, password)
+            chatstart(email, password) //문의하기 기능
         }
 
 
@@ -58,7 +58,7 @@ class ChatLogoinActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
     }
 
-    private fun chatstart(email: String, password: String){
+    private fun chatstart(email: String, password: String){ //문의하기 기능 함수(firebase)
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -70,7 +70,7 @@ class ChatLogoinActivity : AppCompatActivity() {
                 } else {
                     // 실패 시 실행
                     Toast.makeText(this, "문의하기 실패", Toast.LENGTH_SHORT).show()
-                    Log.d("Login", "Error: ${task.exception}")
+                    Log.d("Login", "Error: ${task.exception}") //Log.d는 Logcat에서 실패 원인을 확인할 수 있게 해준다.
 
                 }
             }

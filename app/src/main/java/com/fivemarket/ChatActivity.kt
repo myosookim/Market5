@@ -43,23 +43,23 @@ class ChatActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         mDbRef = FirebaseDatabase.getInstance().reference
 
-        //보낸 사람/받는 사람 UID
+        //보낸 사람/받는 사람의 정보(uid)
         val senderUid = mAuth.currentUser?.uid
 
         //보낸 유저 방
         senderRoom = receiverUid+senderUid
 
-        //받는 유저 방방
+        //받는 유저 방
        receiverRoom = senderUid+receiverUid
 
 
-        //액션바에 상대방 이름 보여주기. (투명)
+        //ActionBar에 상대방 이름 보여주기. (투명)
         supportActionBar?.title = receiverName
 
         //메세지 전송 버튼
         binding.sendBtn.setOnClickListener{
 
-            val message = binding.messageEdit.text.toString() //입력한 메세지 값을 메세지에 넣고
+            val message = binding.messageEdit.text.toString() ////입력한 메세지를 message에 담아
             val messageObject = Message(message, senderUid) // 메세지 클래스 형식의 값은 message Object에 넣는다.
 
             //메세지를 데이터 베이스에 저장하기, chats 라는 공간을 만들어 그 안에 sendRoom값으로 공간을 생성한다.그리고
@@ -72,7 +72,7 @@ class ChatActivity : AppCompatActivity() {
             //메세지를 전송하고 입력 부분을 초기화
             binding.messageEdit.setText("")
         }
-        //메세지 전송 버튼 기능 구현
+        //메세지 전송 버튼 기능 구현(메세지 내보내기)
         mDbRef.child("chats").child(senderRoom).child("messages")//chats이 sendRoom으로 변경,이를 message로 변경해 onDataChange 함수 실행
             .addValueEventListener(object: ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) { //message안에 있는 데이터가 snapshot안에 있고 이는 postSnapshat에 담음

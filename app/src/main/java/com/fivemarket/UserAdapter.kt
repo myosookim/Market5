@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 //RecyclerView.ViewHolder를 상속받은 클래스
 //UserAdapter클래스에 UserViewHolder를 적용
-class UserAdapter (private val context: Context, private val userList: ArrayList<User>):
-    RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
+class UserAdapter (private val context: Context, private val userList: ArrayList<User>): //context와 ArrayList
+    RecyclerView.Adapter<UserAdapter.UserViewHolder>(){ //UserViewHolder를 구현해주어야 한다.
 
 
     //user_layout과 연결하는 기능 구현(화면 설정)
@@ -20,7 +20,8 @@ class UserAdapter (private val context: Context, private val userList: ArrayList
         inflate(R.layout.user_layout, parent,false)
 
         return UserViewHolder(view)
-    }                // 데이터 전달받아 user_layout에 보여주는 기능 구현
+    }
+    // 데이터 전달받아 user_layout에 보여주는 기능 구현
     override fun onBindViewHolder(holder: UserViewHolder, position: Int){
 
         val currentUser = userList[position] //userlist안에 있는 데이터를 current에 넣는다.
@@ -28,7 +29,7 @@ class UserAdapter (private val context: Context, private val userList: ArrayList
         holder.itemView.setOnClickListener{
             val intent = Intent(context, ChatActivity::class.java)
 
-            //넘길 데이터?
+            //ChatActivity로 넘어갈 데이터
             intent.putExtra("name",currentUser.name)
             intent.putExtra("uId", currentUser.uId)
 

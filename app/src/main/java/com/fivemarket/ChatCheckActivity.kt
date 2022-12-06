@@ -22,7 +22,7 @@ class ChatCheckActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityChatcheckBinding.inflate(layoutInflater)
+        binding = ActivityChatcheckBinding.inflate(layoutInflater) //객체 초기화 해주기
         setContentView(binding.root)
 
         //객체 초기화
@@ -31,9 +31,10 @@ class ChatCheckActivity : AppCompatActivity() {
         //데이터 베이스 초기화
         mDbRef = Firebase.database.reference
 
-        binding.checkBtn.setOnClickListener {
+        //회원가입버튼
+       binding.checkBtn.setOnClickListener {
 
-            val name = binding.nameEdit.text.toString().trim()
+            val name = binding.nameEdit.text.toString().trim() //trim()은 공백 제거 기능
             val email = binding.emailEdit.text.toString().trim()
             val password = binding.passwordEdit.text.toString().trim()
 
@@ -45,7 +46,7 @@ class ChatCheckActivity : AppCompatActivity() {
     //회원가입 기능 넣음
    private  fun signup(name: String, email: String, password: String) {
 
-        mAuth.createUserWithEmailAndPassword(email,password)
+        mAuth.createUserWithEmailAndPassword(email,password)//
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // 성공시 실행
@@ -53,7 +54,7 @@ class ChatCheckActivity : AppCompatActivity() {
                     val intent: Intent =
                         Intent(this@ChatCheckActivity, chatMainActivity::class.java)
                     startActivity(intent)
-                    addUserToDb(name, email, mAuth.currentUser?.uid!!)
+                    addUserToDb(name, email, mAuth.currentUser?.uid!!) //데이터 베이스에 저장하는 함수
                 } else {
                     // 실패 시 실행
                     Toast.makeText(this, "채팅 가입 실패", Toast.LENGTH_SHORT).show()
@@ -63,7 +64,7 @@ class ChatCheckActivity : AppCompatActivity() {
     }
 
    private fun addUserToDb(name: String, email: String, uId: String){
-        mDbRef.child("user").child(uId).setValue(User(name,email,uId ))
+        mDbRef.child("user").child(uId).setValue(User(name,email,uId ))//User 안에 사용자 정보 저장
 
     }
 

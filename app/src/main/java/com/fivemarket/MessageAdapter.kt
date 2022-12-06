@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 
 class MessageAdapter (private val context: Context, private val messageList: ArrayList<Message>):
-    RecyclerView.Adapter<RecyclerView.ViewHolder>(){ //받는 사람과 보낸 사람의 뷰홀더가 2개이므로 RecyclerView로
+    RecyclerView.Adapter<RecyclerView.ViewHolder>(){ //받는 사람과 보낸 사람의 뷰홀더가 2개이므로 RecyclerView로 어떤 ViewHolder을 받을 수 있게..
 
     //메세지에 따라 어떠한 ViewHolder를 사용할지 정하기 위해 변수 두개 선언
     private val receive = 1 //받는 타입
     private val send = 2 //보내는 타입
-
+//화면 연결해주는 함수
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return  if (viewType == 1){//받는 화면
             val view: View = LayoutInflater.from(context).inflate(R.layout.receive,parent,false)
@@ -31,9 +31,9 @@ class MessageAdapter (private val context: Context, private val messageList: Arr
         val currentMessage = messageList[position]
         //보내는 메세지 데이터
         if(holder.javaClass == SendViewHolder::class.java){
-            val viewHolder = holder as SendViewHolder
+            val viewHolder = holder as SendViewHolder // holder값을 SendViewHolder 타입으로 변경해 viewHolder로
             viewHolder.sendMessage.text = currentMessage.message
-        } else{ //받는 메세지 데이터터
+        } else{ //받는 메세지 데이터
            val viewHolder = holder as ReceiveViewHolder
             viewHolder.receiveMessage.text = currentMessage.message
         }

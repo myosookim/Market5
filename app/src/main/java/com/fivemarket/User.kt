@@ -1,6 +1,6 @@
 package com.fivemarket
 
-data class User(
+data class User( //사용자 정보를 담을 class
     var name: String,
     var email: String,
     var uId: String

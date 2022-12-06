@@ -32,29 +32,29 @@ class chatMainActivity : AppCompatActivity() {
         //객체 초기화
         mAuth = Firebase.auth
 
-        //데이터 베이스 초기화
+        //데이터 베이스 초기화(실시간간
         mDbRef = Firebase.database.reference
 
-        userList = ArrayList()
+        userList = ArrayList()//리스트 초기화
 
-        adapter = UserAdapter(this, userList) //context와 userList를 넘겼다.
+        adapter = UserAdapter(this, userList) //context와 userList를 인자로 넘겼다.
 
         binding.userRecycelrView.layoutManager = LinearLayoutManager(this)
         binding.userRecycelrView.adapter = adapter
 
-        //유저의 정보를 가져옴
+        //데이터 베이스에 있는 유저의 정보를 가져옴
         mDbRef.child("user").addValueEventListener(object:ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot){
-                for(postSnapshot in snapshot.children){
+            override fun onDataChange(snapshot: DataSnapshot){ //snapshot안에 user의 정보가 들어있고
+                for(postSnapshot in snapshot.children){ //데이터를 꺼내 postSnapshot에 넣음
 
-                    //유저 정보
-                    val currentUser = postSnapshot.getValue(User::class.java)
+                    //유저(본인) 정보
+                    val currentUser = postSnapshot.getValue(User::class.java) //currentUser에 사용자 정보를 넣는다.
 
-                    if(mAuth.currentUser?.uid != currentUser?.uId){
-                        userList.add(currentUser!!)
+                    if(mAuth.currentUser?.uid != currentUser?.uId){ //currentUser에 현재 로그인한 내 정보(uId)가 들어가 있음음
+                       userList.add(currentUser!!)
                     }
                 }
-                adapter.notifyDataSetChanged()
+                adapter.notifyDataSetChanged()//데이터 들어옴
             }
             override fun onCancelled(error: DatabaseError){
                 //실패 시 실행
