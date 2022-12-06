@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 //RecyclerView.ViewHolder를 상속받은 클래스
 //UserAdapter클래스에 UserViewHolder를 적용
 class UserAdapter (private val context: Context, private val userList: ArrayList<User>):
- RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
+    RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
 
 
-                    //user_layout과 연결하는 기능 구현(화면 설정)
+    //user_layout과 연결하는 기능 구현(화면 설정)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val view: View = LayoutInflater.from(context). //view객체 안에 user_layout을 넣고 이를 UserViewHolder안에 넣는다.
         inflate(R.layout.user_layout, parent,false)
