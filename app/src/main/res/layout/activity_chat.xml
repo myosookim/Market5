@@ -18,9 +18,9 @@
     <LinearLayout
         android:id="@+id/input_layout"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="80dp"
         android:orientation="horizontal"
         android:weightSum="100">
 
