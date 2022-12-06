@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".viewmodel.ChatLogoinActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <ImageView
         android:id="@+id/logo_image"
         android:layout_width="329dp"

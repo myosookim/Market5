@@ -9,6 +9,8 @@ import android.view.View
 
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.fivemarket.ChatCheckActivity
 import com.fivemarket.MainActivity
@@ -51,6 +53,11 @@ class ChatLogoinActivity : AppCompatActivity() {
             val intent: Intent = Intent(this@ChatLogoinActivity,ChatCheckActivity::class.java)
             startActivity(intent)
         }
+
+        // 툴바 (액션바 비활성화했기 때문에, 커스텀한 툴바를 액션바 대신 사용).
+        // 주의!! : 툴바 코드는 onCreate의 제일 마지막 부분에 있어야 합니다.
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
     }
 
     private fun chatstart(email: String, password: String){
