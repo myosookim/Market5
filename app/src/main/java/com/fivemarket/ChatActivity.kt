@@ -85,7 +85,7 @@ class ChatActivity : AppCompatActivity() {
                         //죄종적으로 message를 messageList에 담는다.
                     }
 
-                    messageAdapter.notifyDataSetChanged()//화면에 메세지 내용 출력
+                    messageAdapter.notifyDataSetChanged()//화면에 메세지 내용 출력한다.
 
                 }
 
